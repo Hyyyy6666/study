@@ -39,7 +39,7 @@
    
       3. 列表标签
    
-         <img src="D:\Git\study\html_excercise\笔记.jpg" alt="笔记" style="zoom:50%;" />
+         <img src="D:\Git\study\html_excercise\img\笔记.jpg" alt="笔记" style="zoom:50%;" />
    
       4. 链接与锚点标签
       
