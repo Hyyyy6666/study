@@ -9,12 +9,12 @@
 
       | 基础结构             |              |
       | -------------------- | ------------ |
-      | <header> </header>   | 网站页眉     |
-      | <nav></nav>          | 导航栏       |
-      | <main></main>        | 主要内容区   |
-      | <article></aricle>   | 独立文章内容 |
-      | <section></section>> | 内容区块     |
-      | <aside></aside>>     | 侧边栏       |
-      | <footer></footer>>   | 页脚         |
+      | header   | 网站页眉     |
+      | nav       | 导航栏       |
+      | main        | 主要内容区   |
+      | article   | 独立文章内容 |
+      | section| 内容区块     |
+      | aside     | 侧边栏       |
+      | footer   | 页脚         |
 
       
