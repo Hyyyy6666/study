@@ -48,7 +48,7 @@
          | herf                       | 基本链接       |
          | target                     | 打开方式       |
          | h2 id=“锚点”；herf=“#锚点” | 页面内转跳     |
-         | href=“邮箱”                | 发送邮件       |
+         | href=“mailto:邮箱”                | 发送邮件       |
          | href=“下载文件名” download | 下载文件       |
          | href=“page.html#chapter2”  | 转跳到页面章节 |
    
