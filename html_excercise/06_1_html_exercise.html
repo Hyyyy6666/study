@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习成果汇报博客页面</title>
+    <style>
+    body{
+        margin:0;
+        padding:0 20px;
+        font-family: Arial, sans-serif;
+    }    
+    header,main,footer{
+        max-width:1000px;
+        margin:0 20px 0;
+        margin:20px;
+    }
+    nav a{
+        text-decoration: none;
+        color:#333;
+        margin:0 10px;
+    }
+    section{
+        margin:30px 0;
+        padding:10px;
+        border:1px solid #eee
+    }
+    footer{
+        border-top:1px solid #ddd;
+        padding:20px 0;
+        margin-top:30px;
+    }
+    </style>
+</head>
+<body>
+    <h1>我的学习成果汇报</h1>
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#article">文章</a>
+        <a href="#video">视频</a>
+    </nav>
+<hr>
+    <main>
+        <h2>HTML5学习心得</h2>
+        <article>
+            <p>发布日期：2025年12月16日</p>
+            <br>
+            <p>今天学习了<mark>HTML5</mark>的新特性，包括语义化标签、音视频嵌入，还有可折叠内容和可编辑元素，这些特性让网页结构更加清晰，交互更丰富。</p>
+            <br>
+            <details>
+                <summary>查看学习进度</summary>
+                <p>
+                    HTML:<progress value="70%" max="100%">70%</progress><br>
+                    CSS:<progress value="50%" max="100%">50%</progress><br>
+                    JavaScript:<progress value="30%" max="100%">30%</progress>
+                </p>
+            </details>
+        </article>
+<hr>
+        <section>
+            <h2>学习视频</h2>
+            <video width="600" controls>
+                <source src="learning_html5.mp4" type="video/mp4" preload="matedata">
+                您的浏览器不支持视频播放。
+            </video>
+        </section>
+
+        <section>
+            <h2>音频笔记</h2>
+            <audio width="600" controls>
+                <source src="html5_notes.mp3" type="audio/mpeg" preload="metadata">
+                您的浏览器不支持音频播放。
+            </audio>
+        </section>
+    </main>
+<hr>
+    <footer>
+        <p>©️2025 Hyyyyyy-666666的博客|联系方式：<a href="mailto:Hyyyyyy_6666666@qq.com">mailto:Hyyyyyy_6666666@qq.com</a></p>
+        <div contenteditable="true">
+            <p><small>这是一段可修改文字</small></p>
+        </div>
+    </footer>
+</body>
+</html>
