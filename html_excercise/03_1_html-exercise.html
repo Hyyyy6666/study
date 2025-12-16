@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+</head>
+<body>
+    <h2>新用户注册</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>基本信息</legend>
+                
+                <label for="username">用户名:</label>
+                <input type="text" id="username" name="username" required>
+                <br> 
+                <label for="password">密码：</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <label for="tel">联系方式：</label>
+                <input type="tel" id="tel" name="tel" required>
+            
+        </fieldset>    
+        <fieldset>
+            <legend>其他信息</legend>
+            <p>
+                <label for="gender">性别</label>
+                <input type="radio" id="male" name="gender" value="male" checked>男
+                <input type="radio" id="female" name="gender" value="female">女
+                <br>
+                <label for="hobby">爱好</label>
+                <input type="checkbox" id="reading" name="hobby" value="reading">阅读
+                <input type="checkbox" id="singing" name="hobby" value="singing">唱歌
+                <input type="checkbox" id="sleeping" name="hobby" value="sleeping">睡觉
+                <br>
+                <select name="city" id="city">
+                    <optgroup label="城市">
+                    <option value="beijing">北京</option>
+                    <option value="shanghai">上海</option>
+                    <option value="guangzhou">广州</option>
+                    <option value="shenzhen">深圳</option>
+                    </optgroup>
+                </select>
+                <br>
+                <select>
+                    <optgroup label="职业">
+                    <option value="student">学生</option>
+                    <option value="teacher">教师</option>
+                    <option value="engineer">工程师</option>
+                    <option value="other">其他</option>
+                    </optgroup>
+                </select>
+            </p>
+        </fieldset>
+              
+    </form>
+</body>
+</html>
