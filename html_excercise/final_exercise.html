@@ -4,6 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人作品集</title>
+    <style>
+        body{
+            font-family: Arial,sans-serif;
+            margin: 0px;
+            padding:20px;
+            line-height:1,6;
+    
+        }
+        fieldset{
+            width:30px;
+            padding:20px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+        p{
+            margin:10px 0;
+        }
+        button{
+            padding:6px 12px;
+            padding-right:10px;
+            cursor:pointer
+        }
+        details{
+            width:350px;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            margin-top:10px;
+        }
+        summary{
+            cursor: pointer;
+            font-weight:bold;
+        }
+        ul{
+            padding-left:20px;
+        }
+        a{
+            text-decoration:none;
+        }
+        a:hover{
+            text-decoration:underline
+        }
+    </style>
 </head>
 <body>
 <h1>欢迎来到我的作品集</h1>
@@ -14,6 +57,7 @@
         <a href="#home">首页</a>
         <a href="#about-me">关于我</a> 
         <a href="#projects">项目展示</a> 
+        <a href="#resource">资源分享</a>
         <a href="#contact">联系方式</a>
     </nav>
 </header>
@@ -21,7 +65,7 @@
     <main>
         <section id="about-me">
             <h2>关于我</h2>
-            <img src="./img/头像.jpg" alt="头像" width="200" height="200">
+            <img src="./img/Cache_2e80dee3dd8d8566.jpg" alt="头像" width="200" height="200">
             <p>你好！我是一个热爱前端开发的学习者，喜欢创造美观且实用的网站。</p>
             <p>目前正在系统学习web开发技术，希望将来能成为一名优秀的前端工程师</p>
             <h3>我的技能</h3>
@@ -31,6 +75,42 @@
                     html:<progress value="70%" max="100%"></progress><br>
                     css:<progress value="50%" max="100%"></progress><br>
                     javascript:<progress value="30%" max="100%"></progress>
+                </p>
+            </details>
+        </section>
+        <hr>
+        <section id="resource">
+            <h2>我的学习资源分享</h2>
+            <details>
+                <summary>点击查看🔻</summary>
+                <p>
+                    <details>
+                        <summary>学习网站资源</summary>
+                        <p>
+                        <ul>
+                            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">MDN HTML教程</a></li>
+                            <li><a href="https://www.w3schools.com/html/">W3Schools HTML教程</a></li>
+                            <li><a href="https://www.runoob.com/html/html-tutorial.html">菜鸟教程 HTML部分</a></li>
+                        </ul>
+                        </p>
+                    </details>
+                    <details>
+                        <summary>学习音频资源</summary>
+                        <p>
+                            <ul>
+                                <li><audio controls>
+                                    <source src="music.mp3" type="audio/mpeg">
+                                    <source src="music.ogg" type="audio/ogg">
+                                    您的浏览器不支持音频播放！
+                                </audio></li>
+                                <li><video width="320" height="240" controls>
+                                    <source src="video.mp4" type="video/mp4">
+                                    <source src="video.ogg" type="video/ogg">
+                                    您的浏览器不支持视频播放！
+                                </video></li>
+                            </ul>
+                        </p>
+                    </details>
                 </p>
             </details>
         </section>
@@ -98,8 +178,8 @@
     </main>
 </header>
 <hr>
-<footer>
-    <p>©️2025 Hyyyy_6666|邮箱：<a href="mailto:2772802559@qq.com">2772802559@qq.com</a><div contenteditable="true">。</div></p>
+<footer style="background-color: #333;color:white;padding:20px;text-align:center;margin-top:40px">
+    <p>©️2025 Hyyyy_6666联系方式|<a href="mailto:2772802559@qq.com" style="color:#4da6ff">邮箱</a>|<a href="https://github.com/Hyyyy6666/study.git" style="color:#4da6ff">GitHub</a><div contenteditable="true">本网页由HTML5构建。</div></p>
 </footer>
 </body>
 </html>
