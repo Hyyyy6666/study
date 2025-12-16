@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户注册</title>
+    <style>
+        input, select {
+            box-sizing: border-box; /* 盒模型：border 和 padding 不会撑大元素总宽度/高度 */
+                                    /* 解决不同浏览器盒模型不一致导致的布局偏差问题 */
+        border: 1px solid #ccc;   /* 设置统一的边框样式：1像素灰色实线 */
+                                    /* 覆盖浏览器默认边框（如input默认边框、button默认边框） */
+        outline:none;            /* 去掉输入框等元素的默认蓝色外边框 */
+        padding:8px 12px;      /* 设置统一的内边距：上下8像素，左右12像素 */
+        border-radius: 4px;    /* 设置统一的圆角边框：4像素圆角 */ 
+        font-size: 14px;      /* 设置统一的字体大小：14像素 */
+    }
+
+        input:focus,select:focus{
+            border-coler:#409eff;
+            box-shadow: 0 0 0 2px rgba(64,158,255,.2);/* 聚焦外发光效果：0偏移 + 0模糊 + 2px扩散 + 淡蓝色半透明阴影 */
+                                                        /* 增强聚焦视觉辨识度，同时不影响周围布局 */
+                                                        /* rgba 第四个参数0.2控制透明度，避免阴影过于突兀 */
+        }
+
+        input:disabled,select:disabled{
+            background-color:#f5f7fa; /* 禁用状态背景色：浅灰色 */
+            color:#999; /* 禁用状态文字颜色：深灰色 */
+            cursor:not-allowed; /* 禁用状态鼠标样式：禁止符号 */
+        }
+    </style>
 </head>
 <body>
     <h2>新用户注册</h2>
