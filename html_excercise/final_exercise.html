@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品集</title>
+</head>
+<body>
+<h1>欢迎来到我的作品集</h1>
+<p>前端学习者|html/css/javascript</p>
+<hr>
+<header>
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#about-me">关于我</a> 
+        <a href="#projects">项目展示</a> 
+        <a href="#contact">联系方式</a>
+    </nav>
+</header>
+
+    <main>
+        <section id="about-me">
+            <h2>关于我</h2>
+            <img src="./img/头像.jpg" alt="头像" width="200" height="200">
+            <p>你好！我是一个热爱前端开发的学习者，喜欢创造美观且实用的网站。</p>
+            <p>目前正在系统学习web开发技术，希望将来能成为一名优秀的前端工程师</p>
+            <h3>我的技能</h3>
+            <details>
+                <summary>点击查看🔻</summary>
+                <p>
+                    html:<progress value="70%" max="100%"></progress><br>
+                    css:<progress value="50%" max="100%"></progress><br>
+                    javascript:<progress value="30%" max="100%"></progress>
+                </p>
+            </details>
+        </section>
+        <hr>
+        <section id="project">
+            <h2>项目展示</h2>
+            <table border="1" style="width: 100%;">
+                <tr>
+                    <th>项目名称</th>
+                    <th>技术栈</th>
+                    <th>描述</th>
+                    <th>链接</th>
+                </tr>
+                <tr>
+                    <td>个人博客</td>
+                    <td>html,css</td>
+                    <td>使用纯html和css创建的静态博客</td>
+                    <td><a href="./06_1_html_exercise.html">查看</a></td>
+                </tr>
+                <tr>
+                    <td>新用户注册页面</td>
+                    <td>html,css</td>
+                    <td>包含表单验证的用户注册页面</td>
+                    <td><a href="./03_1_html-exercise.html">查看</a></td>
+                </tr>
+                <tr>
+                    <td>相册展示页面</td>
+                    <td>html,css</td>
+                    <td>一个简单的相册展示页面</td>
+                    <td><a href="./02_2_html_exerise.html">查看</a></td>
+                </tr>  
+                <tr>
+                    <td>我的课程表</td>
+                    <td>html,css</td>
+                    <td>使用表格布局的课程表页面</td>
+                    <td><a href="./02_3_html_exercise.html">查看</a></td>   
+                </tr>
+            </table>
+        </section>
+
+        <hr>
+        <section id="contact" style="margin-top: 40px;">
+            <h2>联系我</h2>
+            <form action="#" method="post">
+                <fieldset>
+                <legend>发送消息</legend>
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">邮箱</label>
+                <input type="email" id="mail" name="mail" required>
+                <br>
+                <select name="messagetype" id="messagetype">
+                    <label for="messagetype">留言类型</label>
+                    <option value="issue about technology">技术问题</option>
+                    <option  value="work chance">合作机会</option>
+                    <option value="other">其他</option>
+                </select> 
+                <br>
+                <textarea id="message" name="message" required></textarea>
+                <br>
+                <input type="checkbox" name="subscribe">订阅我的学习周报<br>
+                <button type="submit">提交</button>
+                <button type="reset">重置</button>
+            </form>
+        </section>
+    </main>
+</header>
+</body>
+</html>
