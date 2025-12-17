@@ -783,7 +783,7 @@ img { vertical-align: middle; } /* 图片与文字居中对齐 */
 .grid-container {
   display: grid;
   /* 定义列：3列，第一列200px，后两列均分 */
-  grid-template-columns: 200px 1fr 1fr;
+  grid-template-columns: 200px 1fr 1fr;/*fr，分数单位*/
   /* 定义行：2行，每行100px */
   grid-template-rows: 100px 100px;
   /* 行列间距（替代 margin） */
