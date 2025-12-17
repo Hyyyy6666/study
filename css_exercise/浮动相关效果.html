@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浮动与清除浮动完整示例</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { padding: 20px; font-family: "微软雅黑"; }
+    h3 { margin: 20px 0 10px; color: #333; }
+    .demo-box { margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 6px; }
+
+    /* 清除浮动类 */
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+      visibility: hidden;
+      height: 0;
+    }
+    .clearfix { zoom: 1; }
+
+    /* 1. 图文环绕 */
+    .float-text-wrap { width: 600px; }
+    .float-avatar {
+      float: left;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #4299e1;
+      margin-right: 15px;
+    }
+    .float-text { line-height: 1.8; }
+
+    /* 2. 浮动多列（有塌陷） */
+    .float-collapse { width: 600px; border: 2px solid #f00; background: #f9f9f9; }
+    .float-item {
+      float: left;
+      width: 180px;
+      height: 100px;
+      margin: 10px;
+      background: #9f7aea;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 3. 浮动多列（清除浮动后） */
+    .float-cleared { width: 600px; border: 2px solid #28a745; background: #f9f9f9; }
+
+    /* 4. Flex 多列（对比） */
+    .flex-row {
+      width: 600px;
+      display: flex;
+      gap: 10px;
+      border: 2px solid #17a2b8;
+      background: #f9f9f9;
+      padding: 10px;
+    }
+    .flex-item {
+      flex: 1;
+      height: 100px;
+      background: #38b2ac;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h3>1. 浮动核心场景：图文环绕</h3>
+  <div class="demo-box float-text-wrap">
+    <div class="float-avatar"></div>
+    <div class="float-text">
+      这是浮动的核心实用场景！头像左浮动后，文字自动环绕在右侧。即使现代布局普及，图文环绕仍需用 float 实现。
+      浮动的本质是让行内/行内块元素环绕浮动元素，这是 Flex/Grid 无法替代的。
+    </div>
+  </div>
+
+  <h3>2. 浮动问题：父容器高度塌陷（红色边框仅一条线）</h3>
+  <div class="demo-box float-collapse">
+    <div class="float-item">浮动项1</div>
+    <div class="float-item">浮动项2</div>
+  </div>
+
+  <h3>3. 清除浮动：伪元素法（绿色边框包裹子元素）</h3>
+  <div class="demo-box float-cleared clearfix">
+    <div class="float-item">浮动项1</div>
+    <div class="float-item">浮动项2</div>
+  </div>
+
+  <h3>4. 对比：Flex 多列（无塌陷，更简单）</h3>
+  <div class="demo-box flex-row">
+    <div class="flex-item">Flex项1</div>
+    <div class="flex-item">Flex项2</div>
+    <div class="flex-item">Flex项3</div>
+  </div>
+</body>
+</html>

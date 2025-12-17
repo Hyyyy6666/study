@@ -139,7 +139,7 @@ summary {
 | ------------ | ----------------- | ------------------------------------------------------------ | ------------------------------------------- |
 | **字体基础** | `font-family`     | 字体列表（逗号分隔，最后加通用族：`sans-serif`/`serif`/`monospace`） | `font-family: "微软雅黑", sans-serif;`      |
 |              | `font-size`       | 字号：`px`（固定）/`em`（父元素倍数）/`rem`（根元素倍数）/`%` | `font-size: 16px;`/`font-size: 1.2rem;`     |
-|              | `font-weight`     | 字重：`normal`(400)/`bold`(700)（粗体）/`100-900`/`lighter`/`bolder` | `font-weight: 600;`                         |
+|              | `font-weight`     | 字重：`normal`(400)/`bold`(700)/`100-900`/`lighter`/`bolder` | `font-weight: 600;`                         |
 |              | `font-style`      | 样式：`normal`/`italic`（斜体）/`oblique`（倾斜）            | `font-style: italic;`                       |
 |              | `font`（简写）    | 顺序：`style weight size family`（`size`+`family`必填）      | `font: italic 600 16px "微软雅黑";`         |
 | **颜色**     | `color`           | 颜色值：十六进制（`#333`/`#2c3e50`）/RGB（`rgb(51,51,51)`）/RGBA（`rgba(51,51,51,0.8)`）/ 颜色名（`red`） | `color: #2c3e50;`                           |
@@ -152,5 +152,510 @@ summary {
 |              | `word-spacing`    | 词间距（英文）：`px`/`em`                                    | `word-spacing: 4px;`                        |
 |              | `white-space`     | 空白处理：`normal`（默认）/`nowrap`（不换行）/`pre`（保留空格换行） | `white-space: nowrap;`                      |
 
-### 
 
+
+## 盒模型概念
+
+#### 一、盒模型的组成
+
+CSS 盒模型是网页布局的核心概念，它定义了网页中每个元素（如 div、p、span 等）都会生成一个矩形的 “盒子”，页面布局本质上就是对这些盒子的排列、大小和位置的控制。
+
+每个盒子包含4个核心部分：
+
+| 组成部分              | 作用                                                         |
+| --------------------- | ------------------------------------------------------------ |
+| **Content（内容区）** | 元素的实际内容（文本、图片等），宽高由 `width`/`height` 控制（标准模型下）。 |
+| **Padding（内边距）** | 内容区与边框之间的空白区域，会继承元素的背景（背景色 / 背景图），不可为负。 |
+| **Border（边框）**    | 围绕内边距的线条，会占据空间，样式由 `border` 系列属性控制。 |
+| **Margin（外边距）**  | 盒子与其他盒子之间的空白区域，透明且不会继承背景，可设负值（用于调整布局）。 |
+
+#### 二、两种盒模型
+
+##### 1. 标准盒模型（W3C 标准）
+
+- **默认行为**：浏览器默认采用标准盒模型（除了 IE6/7/8 怪异模式）。
+- **宽高计算**：`width/height` 仅等于**内容区**的宽度 / 高度。
+- **总宽度 / 高度** = `width/height` + padding（左右 / 上下） + border（左右 / 上下） + margin（左右 / 上下）（margin 是外间距，不算盒子本身大小，仅影响布局）。
+
+示例
+
+```css
+.box {
+  width: 200px;    /* 内容区宽度 */
+  height: 100px;   /* 内容区高度 */
+  padding: 10px;   /* 上下左右内边距各10px */
+  border: 5px solid #000; /* 上下左右边框各5px */
+  margin: 20px;    /* 上下左右外边距各20px */
+}
+```
+
+- 盒子自身宽度 = 200（weight） + 10×2（左右内边距） + 5×2（边框左右） = 230px
+- 盒子占据的布局宽度 = 230 + 20×2 （外边距左右宽度）= 270px
+
+##### 2. IE 盒模型（怪异盒模型 / 边框盒模型）
+
+- **触发方式**：通过 `box-sizing: border-box;` 手动设置（现代开发中最常用）。
+- **宽高计算**：`width/height` 包含**内容区 + padding + border**。
+- **总宽度 / 高度** = `width/height` + margin（左右 / 上下）。
+
+示例（同上参数，仅改盒模型）：
+
+```css
+.box {
+  box-sizing: border-box; /* 启用IE盒模型 */
+  width: 200px;    /* 包含内容+padding+border */
+  height: 100px;
+  padding: 10px;
+  border: 5px solid #000;
+  margin: 20px;
+}
+```
+
+- 盒子自身宽度 = 200px（内容区宽度 = 200 - 10×2 - 5×2 = 170px）
+- 盒子占据的布局宽度 = 200 + 20*2 = 240px
+
+#### 三、关键属性
+
+##### 1. box-sizing（控制盒模型类型）
+
+| 值            | 说明                      |
+| ------------- | ------------------------- |
+| `content-box` | 默认值，标准盒模型        |
+| `border-box`  | IE 盒模型（推荐开发使用） |
+| `inherit`     | 继承父元素的 box-sizing   |
+
+**开发技巧**：全局设置 border-box，避免布局计算麻烦：
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 所有元素默认IE盒模型 */
+}
+```
+
+##### 2. 内边距（padding）
+
+- 简写：`padding: 上 右 下 左;`（顺时针），如 `padding: 10px 20px;`（上下 10，左右 20）。
+- 单方向：`padding-top`/`padding-right`/`padding-bottom`/`padding-left`。
+- 注意：行内元素（如 span）的 padding 上下不会影响行高，但会覆盖周围元素。
+
+##### 3. 边框（border）
+
+- 简写：`border: 宽度 样式 颜色;`，如 `border: 1px solid #ccc;`。
+- 样式（必填）：`solid`（实线）、`dashed`（虚线）、`dotted`（点线）、`none`（无）等。
+- 单方向：`border-top: 1px solid red;`。
+- 圆角：`border-radius: 5px;`（可设百分比，如 50% 实现圆形）。
+
+##### 4. 外边距（margin）
+
+- 简写规则同 padding。
+- 单方向：`margin-top`/`margin-right`/`margin-bottom`/`margin-left`。
+- 核心特性：
+  - **外边距合并（塌陷）**：垂直方向上，两个相邻元素的 margin 会合并为较大的那个（如上面元素 margin-bottom:20px，下面元素 margin-top:10px，实际间距为 20px）。
+  - **居中对齐**：块级元素（定宽）水平居中：`margin: 0 auto;`。
+  - 行内元素的 margin 上下无效，左右有效。
+
+#### 四、常见应用场景
+
+1. **定宽布局**：用 `box-sizing: border-box` 确保元素宽度不受 padding/border 影响。
+2. **元素间距**：用 margin 控制盒子之间的距离，padding 控制内容与边框的距离。
+3. **圆角卡片**：`border-radius + padding + border` 实现卡片样式。
+4. **水平居中**：`margin: 0 auto`（块级元素定宽）。
+
+#### 五、注意事项
+
+1. 行内元素（如 span、a）的盒模型特性：
+   - width/height 无效（需转块级 / 行内块 `display: inline-block`）。
+   - padding 上下不影响行高，但会视觉上延伸。
+   - margin 上下无效，左右有效。
+2. 浮动元素、绝对定位 / 固定定位元素的 margin 不会合并。
+3. `box-sizing` 不影响 margin，margin 始终是盒子外的间距。
+
+
+
+## display属性
+
+#### 一、核心分类（按布局行为）
+
+`display` 的值可分为几大类：**基础显示类型**、**布局模式类型**、**隐藏类**，以下是最常用的取值及特性：
+
+| 取值                 | 元素类型     | 核心特性                                                 | 宽高设置 | 换行规则             | 边距 / 内边距      | 常见应用场景                         |
+| -------------------- | ------------ | -------------------------------------------------------- | -------- | -------------------- | ------------------ | ------------------------------------ |
+| `block`              | 块级元素     | 独占一行；可设置 width/height；默认宽度撑满父容器        | 有效     | 自动换行（独占一行） | 上下左右都有效     | 容器（div、section）、按钮（自定义） |
+| `inline`             | 行内元素     | 不独占一行；宽高由内容决定（设置 width/height 无效）     | 无效     | 同行排列             | 左右有效，上下无效 | 文本包裹（span、a、em）              |
+| `inline-block`       | 行内块元素   | 不独占一行；可设置 width/height；对齐方式可调整          | 有效     | 同行排列             | 上下左右都有效     | 导航栏、表单控件（input）            |
+| `none`               | 隐藏元素     | 元素完全隐藏（不占布局空间），DOM 仍存在                 | -        | -                    | -                  | 动态隐藏元素（如弹窗关闭）           |
+| `flex`               | 弹性容器     | 子元素按弹性布局排列（一维），可控制对齐、分布、方向     | -        | 子元素同行 / 列排列  | -                  | 响应式布局、垂直居中、均分列         |
+| `grid`               | 网格容器     | 子元素按网格布局排列（二维），可定义行 / 列数量、大小    | -        | 网格排列             | -                  | 复杂布局（卡片网格、表单布局）       |
+| `inline-flex`        | 行内弹性容器 | 弹性容器本身行内显示（不独占一行），子元素仍按 flex 布局 | -        | 同行排列             | -                  | 行内弹性布局（如按钮组）             |
+| `inline-grid`        | 行内网格容器 | 网格容器本身行内显示，子元素按 grid 布局                 | -        | 同行排列             | -                  | 行内网格布局                         |
+| `table`/`table-cell` | 表格布局     | 模拟 HTML 表格行为（table 为容器，table-cell 为单元格）  | -        |                      |                    |                                      |
+
+#### 二、基础类型详解（最常用）
+
+##### 1. display: block（块级元素）
+
+- **默认元素**：div、p、h1-h6、ul/li、section、footer 等。
+
+- 核心特性
+
+  - 独占一行，即使设置宽度小于父容器，右侧仍无其他元素；
+  - 默认宽度为父容器的 100%（撑满），高度由内容决定；
+  - 可自由设置 width/height、margin/padding（上下左右都生效）；
+  - 支持 `margin: 0 auto` 实现水平居中（需定宽）。
+
+- 示例：
+
+  ```css
+  .box {
+    display: block;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto; /* 水平居中 */
+    padding: 10px;
+    background: #f0f0f0;
+  }
+  ```
+
+  
+
+##### 2. display: inline（行内元素）
+
+- **默认元素**：span、a、em、strong、label、br 等。
+
+- 核心特性
+
+  - 不独占一行，与其他行内元素同行排列，直到行宽不足才换行；
+  - width/height 设置无效（宽高由内容（文字 / 图片）决定）；
+  - padding 上下生效（视觉上覆盖周围元素），但不影响行高；margin 上下无效，左右有效；
+  - 无法通过 `margin: 0 auto` 居中（需转 block/inline-block）。
+
+- 示例：
+
+  ```css
+  .text {
+    display: inline;
+    width: 200px; /* 无效 */
+    height: 50px; /* 无效 */
+    margin: 10px; /* 上下无效，左右有效 */
+    padding: 10px; /* 上下视觉延伸，不影响行高 */
+    background: #ff0;
+  }
+  ```
+
+  
+
+##### 3. display: inline-block（行内块元素）
+
+- 核心特性
+
+  ：融合 block 和 inline 的优点：
+
+  - 不独占一行（inline 特性）；
+  - 可自由设置 width/height、margin/padding（block 特性）；
+  - 同行排列时，元素间会有**默认空白间隙**（因 HTML 换行 / 空格导致，可通过父容器 `font-size: 0` 消除）。
+
+- **默认元素**：input、button、img、select 等。
+
+- 示例（消除行内块间隙）：
+
+  ```css
+  .container {
+    font-size: 0; /* 消除子元素间隙 */
+  }
+  .item {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    font-size: 14px; /* 恢复文字大小 */
+    margin: 5px;
+    background: #00f;
+  }
+  ```
+
+  
+
+##### 4. display: none（隐藏元素）
+
+- 核心特性
+
+  - 元素完全从页面中消失，**不占据任何布局空间**（区别于 `visibility: hidden`，后者隐藏但占空间）；
+  - 子元素也会被隐藏，无法通过子元素 `display: block` 恢复；
+  - DOM 结构仍存在，可通过 JS 动态修改 `display` 显示。
+
+- 对比
+
+  ```
+  visibility: hidden
+  ```
+
+  | 属性        | display: none | visibility: hidden |
+  | ----------- | ------------- | ------------------ |
+  | 布局空间    | 不占          | 占用               |
+  | 子元素继承  | 强制隐藏      | 可通过子元素覆盖   |
+  | 动画 / 过渡 | 不支持        | 支持               |
+
+  
+
+#### 三、布局模式类型（现代布局核心）
+
+##### 1. display: flex（弹性布局）
+
+- **核心作用**：父容器设为 flex 后，子元素（flex 项）按弹性规则排列，解决传统布局的垂直居中、均分列、自适应等痛点。
+
+- 关键特性
+
+  - 子元素默认横向排列（`flex-direction: row`）；
+  - 子元素可自动伸缩（`flex: 1` 均分空间）；
+  - 轻松实现垂直居中：`align-items: center` + `justify-content: center`。
+
+- 示例（垂直水平居中）：
+
+  ```css
+  .flex-container {
+    display: flex;
+    width: 300px;
+    height: 200px;
+    background: #f0f0f0;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+  }
+  .flex-item {
+    width: 100px;
+    height: 50px;
+    background: #f00;
+  }
+  ```
+
+##### 2. display: grid（网格布局）
+
+- **核心作用**：二维布局（行 + 列），适合复杂的网格结构（如卡片墙、表单网格）。
+
+- 关键特性
+
+  - 可定义列数 / 行数：`grid-template-columns: 1fr 1fr 1fr`（三列均分）；
+  - 可设置行列间距：`grid-gap: 10px`；
+
+- 示例（三列网格）：
+
+  ```css
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列均分 */
+    grid-gap: 10px; /* 行列间距 */
+    width: 300px;
+  }
+  .grid-item {
+    height: 80px;
+    background: #0f0;
+  }
+  ```
+
+  
+
+#### 四、常见问题与技巧
+
+1. **行内块元素的空白间隙**：
+   - 原因：HTML 中 inline-block 元素之间的换行 / 空格被解析为空白字符；
+   - 解决：父容器设 `font-size: 0`，子元素恢复 `font-size`；或元素间无换行；或用 flex 替代。
+2. **inline 元素设置宽高无效**：
+   - 解决方案：转为 `inline-block` 或 `block`；或用 `padding`/`line-height` 间接控制大小。
+3. **display: none 与 visibility: hidden 区别**：
+   - 隐藏且不占空间：用 `display: none`；
+   - 隐藏但保留空间：用 `visibility: hidden`；
+   - 动画过渡：visibility 支持过渡（`visibility: hidden; opacity: 0;`），display 不支持。
+4. **块级元素居中 vs 行内元素居中**：
+   - 块级元素（定宽）：`margin: 0 auto`；
+   - 行内 / 行内块元素：父容器设 `text-align: center`；
+   - 任意元素垂直居中：flex 布局（最推荐）。
+
+#### 五、总结
+
+`display` 是控制元素布局的核心，不同取值对应完全不同的布局行为：
+
+- 基础布局：`block`/`inline`/`inline-block` 满足简单排版；
+- 现代布局：`flex`（一维）/`grid`（二维）是主流，解决 90% 的布局问题；
+- 隐藏元素：`none`（不占空间）/`visibility: hidden`（占空间）按需选择；
+- 特殊场景：`inline-flex`/`table-cell` 适配小众布局需求。
+
+
+
+## css基本布局控制
+
+#### 一、基础排版控制（流布局）
+
+网页默认是「文档流布局」：块级元素垂直排列（独占一行），行内 / 行内块元素水平排列（随内容换行）。基础布局先掌握「元素大小、间距、对齐」的控制。
+
+##### 1. 元素大小控制
+
+| 场景                | 实现方式                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| 固定大小            | `width: 200px; height: 100px;`（块级 / 行内块有效，行内元素无效） |
+| 自适应父容器        | `width: 100%; height: auto;`（height:auto 由内容撑开）       |
+| 最大 / 最小限制     | `max-width: 1200px; min-height: 500px;`（适配响应式，避免元素过大 / 过小） |
+| 比例容器（如 16:9） | 利用 padding-top 百分比（基于父容器宽度）：`.box { width: 100%; padding-top: 56.25%; height: 0; }` |
+
+##### 2. 间距控制（margin/padding）
+
+间距是布局的「呼吸感」核心，区分「内间距（padding）」和「外间距（margin）」：
+
+- **padding**：控制「内容与边框」的距离（如卡片内边距），不会导致布局塌陷；
+- **margin**：控制「元素与元素」的距离（如两个盒子的间距），需注意垂直外边距合并。
+
+**常用技巧**：
+
+```css
+/* 全局重置默认间距（开发必做） */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* 块级元素水平居中（定宽） */
+.container { width: 1200px; margin: 0 auto; }
+
+/* 垂直间距（避免塌陷：用 padding 替代 margin，或父容器加 overflow: hidden） */
+.card { margin-bottom: 20px; }
+
+/* 行内元素左右间距 */
+.text-item { margin: 0 10px; }
+```
+
+3. 文本 / 行内元素对齐
+
+针对行内 / 行内块元素（文字、span、img、input 等），通过父容器控制对齐：
+
+```css
+/* 水平居中 */
+.parent { text-align: center; }
+
+/* 垂直对齐（基线/顶部/底部/居中） */
+img { vertical-align: middle; } /* 图片与文字居中对齐 */
+.input { vertical-align: top; } /* 输入框与标签顶部对齐 */
+```
+
+#### 二、定位布局（脱离文档流）
+
+当需要元素「脱离默认文档流」（如弹窗、悬浮按钮、侧边栏），使用 `position` 属性，核心是「定位方式 + 偏移量（top/right/bottom/left）」。
+
+| 定位值     | 脱离文档流 | 参考坐标系                     | 核心特性                                                     | 应用场景                         |
+| ---------- | ---------- | ------------------------------ | ------------------------------------------------------------ | -------------------------------- |
+| `static`   | 否（默认） | -                              | 无定位，遵循文档流，top/right 等属性无效                     | 普通元素                         |
+| `relative` | 否         | 自身原本在文档流的位置         | 偏移后仍保留原位置（不影响其他元素），可作为绝对定位的「参考容器」 | 微调元素位置、作为绝对定位父容器 |
+| `absolute` | 是         | 最近的已定位祖先（非 static）  | 脱离文档流，不占空间，偏移基于参考容器的「padding 盒」（border 外） | 弹窗、悬浮元素、精准定位         |
+| `fixed`    | 是         | 浏览器视口（viewport）         | 脱离文档流，滚动页面时位置固定，参考视口边界                 | 导航栏、回到顶部按钮             |
+| `sticky`   | 半脱离     | 滚动到阈值时固定（参考父容器） | 结合 relative 和 fixed 特性，滚动                            | 吸顶导航、表格表头               |
+
+效果预览：[效果预览](./效果预览.html)
+
+#### 现代布局:[几种布局的效果展示](./布局效果预览)
+
+##### 1. Flex 弹性布局（一维布局：行 / 列）
+
+**核心**：给父容器设置 `display: flex`，子元素（flex 项）按弹性规则排列，无需脱离文档流，适配性极强。
+
+| 核心属性（父容器） | 作用                                 | 常用值                                                       |
+| ------------------ | ------------------------------------ | ------------------------------------------------------------ |
+| `flex-direction`   | 排列方向                             | `row`（默认，横向）、`column`（纵向）、`row-reverse`/`column-reverse` |
+| `justify-content`  | 主轴（flex-direction 方向）对齐      | `flex-start`（左 / 上）、`center`（居中）、`space-between`（两端对齐）、`space-around`（均匀分布） |
+| `align-items`      | 交叉轴（垂直主轴）对齐               | `center`（居中）、`flex-start`、`flex-end`、`stretch`（拉伸填满） |
+| `flex-wrap`        | 子元素是否换行                       | `nowrap`（默认，不换行）、`wrap`（换行）                     |
+| `align-content`    | 多行时交叉轴整体对齐（仅 wrap 生效） | `center`、`space-between`、`stretch`                         |
+
+| 核心属性（子元素） | 作用                                                 | 常用值                                                       |
+| ------------------ | ---------------------------------------------------- | ------------------------------------------------------------ |
+| `flex`             | 伸缩比例（简写：flex-grow flex-shrink flex-basis）   | `flex: 1`（均分空间）、`flex: 0 0 200px`（固定 200px，不伸缩） |
+| `align-self`       | 单独设置子元素的交叉轴对齐（覆盖父容器 align-items） | `center`、`flex-start`、`flex-end`                           |
+
+##### 2. Grid 网格布局（二维布局：行 + 列）
+
+适合「多行多列」的复杂布局（如卡片墙、表单网格、仪表盘），核心是定义「行和列的规则」，子元素自动填充网格。
+
+**核心属性（父容器）**：
+
+```css
+.grid-container {
+  display: grid;
+  /* 定义列：3列，第一列200px，后两列均分 */
+  grid-template-columns: 200px 1fr 1fr;
+  /* 定义行：2行，每行100px */
+  grid-template-rows: 100px 100px;
+  /* 行列间距（替代 margin） */
+  grid-gap: 10px; /* 简写：grid-row-gap + grid-column-gap */
+  /* 对齐：justify-items（水平）、align-items（垂直） */
+  justify-items: center;
+  align-items: center;
+}
+
+/* 子元素指定网格位置 */
+.grid-item-1 {
+  /* 从第1列到第3列，从第1行到第2行 */
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+```
+
+**高频应用**：
+
+```css
+/* 自适应网格（每行4列，响应式自动换行） */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+```
+
+#### 四、传统布局（Float）
+
+Float 是早期多列布局的核心（如图文环绕、两栏布局），但易出现「高度塌陷」，现在已被 Flex 替代，仅需了解基础用法和坑点。
+
+##### 1. 核心特性
+
+- `float: left/right/none`：元素向左 / 右浮动，脱离文档流（但仍影响行内元素排版）；
+- 浮动元素的父容器会「高度塌陷」（父容器高度为 0，因为子元素脱离流）；
+- 浮动元素会被块级元素忽略，但行内 / 行内块元素会环绕它。
+
+##### 2. 高度塌陷解决（清除浮动）
+
+```css
+/* 方法1：父容器加 overflow: hidden（简单，但可能隐藏溢出内容） */
+.parent { overflow: hidden; }
+
+/* 方法2：伪元素清除（通用，推荐） */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both; /* 清除左右浮动 */
+  visibility: hidden;
+  height: 0;
+}
+.clearfix { zoom: 1; } /* 兼容IE6/7 */
+
+/* 方法3：末尾加空元素（不推荐，冗余DOM） */
+<div class="clear"></div>
+.clear { clear: both; }
+```
+
+
+
+#### 五、布局控制核心技巧
+
+1. **优先级**：现代布局（Flex > Grid）优先于定位（position），定位优先于传统 float；
+2. **响应式适配**：用 `max-width/min-width` + 百分比 /rem + 媒体查询，Flex/Grid 天然适配；
+3. **盒模型配合**：全局设置 `box-sizing: border-box`，避免 padding/border 改变元素大小；
+4. 居中总结
+   - 块级元素水平居中：`margin: 0 auto`（定宽）；
+   - 行内元素水平居中：父容器 `text-align: center`；
+   - 任意元素垂直水平居中：Flex（`justify-content: center + align-items: center`）；
+5. 避免布局塌
+   - margin 塌陷：父容器加 `padding/border/overflow: hidden`，或用 Flex 布局；
+   - float 塌陷：清除浮动（伪元素法）；
+   - 绝对定位塌陷：父容器设 `height` 或用 Flex 替代。
+
+#### 六、总结
+
+CSS 基本布局控制的核心逻辑是：
+
+- 简单排版（单行 / 单列、居中、间距）：用「流布局 + margin/padding/text-align」；
+- 脱离文档流的精准定位（弹窗、悬浮）：用 `position`（relative/absolute/fixed/sticky）；
+- 自适应、多列、垂直居中：优先用 Flex（一维）/Grid（二维）；
+- 传统 float 仅用于图文环绕等小众场景，需注意清除浮动。[浮动相关效果](./浮动相关效果.html)

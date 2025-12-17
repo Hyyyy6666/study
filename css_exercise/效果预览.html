@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预览效果</title>
+    <title>CSS 定位(position) 演示</title>
+  <style>
+    /* 通用样式：方便查看效果 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      padding: 20px;
+      font-family: "微软雅黑", sans-serif;
+      line-height: 1.6;
+    }
+    .demo-section {
+      margin: 40px 0;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #007bff;
+    }
+    .box, .parent, .back-top, .nav {
+      border: 2px solid #666;
+      background-color: rgba(150, 200, 255, 0.3);
+    }
+    .desc {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    /* 1. relative 微调位置（保留原空间） */
+    .relative-demo .original-box {
+      width: 150px;
+      height: 100px;
+      border: 2px dashed #999;
+      background-color: rgba(255, 200, 150, 0.2);
+      margin-bottom: 10px;
+    }
+    .relative-demo .box {
+      position: relative;
+      top: 10px; /* 向下偏移10px */
+      left: 20px; /* 向右偏移20px */
+      width: 150px;
+      height: 100px;
+    }
+
+    /* 2. absolute 基于父容器定位（父容器必须非static） */
+    .absolute-demo .parent {
+      position: relative; /* 参考容器 */
+      width: 300px;
+      height: 200px;
+      background-color: rgba(200, 255, 150, 0.2);
+    }
+    .absolute-demo .child {
+      position: absolute;
+      top: 0;
+      right: 0; /* 贴在父容器右上角 */
+      width: 100px;
+      height: 50px;
+      background-color: #ff7f7f;
+      color: white;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    /* 3. fixed 固定在视口右下角 */
+    .fixed-demo .back-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    /* 4. sticky 吸顶导航 */
+    .sticky-demo {
+      margin-top: 20px;
+    }
+    .sticky-demo .nav {
+      position: sticky;
+      top: 0; /* 滚动到顶部时固定 */
+      background: #fff;
+      z-index: 999;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background-color: #f8f9fa;
+    }
+    .sticky-demo .content {
+      height: 800px; /* 增加高度方便滚动测试sticky效果 */
+      padding: 20px;
+      background-color: rgba(240, 240, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- 1. relative 定位演示 -->
+  <div class="demo-section relative-demo">
+    <h2>1. relative 定位（保留原空间，相对自身原位置偏移）</h2>
+    <p class="desc">虚线框是元素原位置，蓝色背景框是relative定位后位置（向下10px，向右20px），原空间仍保留</p>
+    <div class="original-box">原位置（虚线框）</div>
+    <div class="box">relative定位后（向下10px，向右20px）</div>
+  </div>
+
+  <!-- 2. absolute 定位演示 -->
+  <div class="demo-section absolute-demo">
+    <h2>2. absolute 定位（基于非static父容器定位）</h2>
+    <p class="desc">绿色背景父容器（relative定位），红色子元素absolute定位在父容器右上角</p>
+    <div class="parent">
+      父容器（position: relative）
+      <div class="child">child（absolute）</div>
+    </div>
+  </div>
+
+  <!-- 3. fixed 定位演示 -->
+  <div class="demo-section fixed-demo">
+    <h2>3. fixed 定位（固定在视口，不随滚动变化）</h2>
+    <p class="desc">蓝色圆形按钮固定在浏览器视口右下角，滚动页面也不会改变位置</p>
+    <div class="back-top">↑</div>
+  </div>
+
+  <!-- 4. sticky 定位演示 -->
+  <div class="demo-section sticky-demo">
+    <h2>4. sticky 定位（滚动到指定位置后固定）</h2>
+    <p class="desc">向下滚动页面，导航栏会粘在顶部（top: 0），滚动回顶部则恢复原位置</p>
+    <div class="nav">✨ 我是吸顶导航（sticky）- 向下滚动试试</div>
+    <div class="content">
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      滚动测试内容<br>
+      （继续向下滚动...）
+    </div>
+  </div>
+</body>
+</html>
+</body>
+</html>
