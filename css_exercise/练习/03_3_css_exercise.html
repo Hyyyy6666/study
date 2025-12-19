@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网格布局仪表盘</title>
+    <style>
+        *{
+            margin:0;
+            padding :0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:16px;
+            line-height: 1.6;
+            color:#333;
+            background-color: #f9f9f9;
+            /* 修复body默认margin导致的滚动条问题 */
+            overflow: hidden;
+        }
+        .dashboard{
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows:70px 1fr;
+            grid-template-areas: 
+            "sider header" 
+            "sider main" ;
+            height: 100vh;
+            position:relative;
+        }
+        .sider{
+            grid-area:sider; 
+            /*grid-row: span 2;height: 100%;移除重复的设置，grid-area已经包含*/
+            min-height: 100vh;
+            background:#2c3e50;
+            display:flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            gap:50px;
+            padding:30px 0;
+        }
+        .sider-title{
+            /* 添加display:flex才能生效align-items */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:#5F98D5;
+            font-weight: bolder;
+            font-size: 24px;
+            margin: 0 auto;
+        }
+        .sider-content{
+            display: flex;
+            flex-direction: column;
+            /* flex-wrap:wrap;移除不必要的flex-wrap */
+            font-weight: bold;
+        }
+        .sider-content a{
+            /* flex:1;修复链接点击区域，使用padding代替flex:1 */
+            padding: 15px 0;
+            text-align: center;
+            align-items: center;
+            justify-content:center;
+            width: 100%;
+            color:white;
+            text-decoration: none;
+            transition:all 0.3s ease;
+        }
+        .sider-content a:hover{
+            background-color: #3B5069;
+        }
+        .header{
+            grid-area:header;
+            background:white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);/* 修复rgba语法错误 */
+            display:flex;
+            align-items: center;
+            justify-content: space-between; /* 改为space-between更合理 */
+            padding:0 30px;
+        }
+        .main-content{
+            grid-area:main;
+            background: #F1F2F5;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            padding:30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));/* 修复grid-template-columns语法错误 */
+            gap:25px;
+            overflow-y:auto;
+            height: 100%; /* 确保滚动区域正确 */
+        }
+        .card{
+            grid-column: 1/-1;/* 改为grid子项，移除flex布局 */
+            display:flex;
+            padding:20px;
+            gap: 25px;
+
+        }
+        .card-1,.card-2,.card-3{
+            flex:1;
+           min-width:200px; /* 替代flex-basis更直观 *//*基准宽度，小于200px自动换行*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100px;
+            background-color: white;
+            border-radius:8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+        }
+        .card-chart{
+            grid-column:span 2;
+        }
+        .data{
+            color: #5F98D5;
+            font-size: 27px;;
+            font-weight: bold;
+        }
+        .work-list{
+            display: flex;
+            flex-direction: column;
+            border-radius:8px; /* 统一圆角风格 */
+            border: 1px solid #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* 统一阴影风格 */
+            background-color: white;
+            padding:20px;
+            /*  width: 500px;移除固定宽度，让grid布局控制 */
+
+        }
+        
+        .decoration{
+            display: flex;
+            align-items: center; /* 垂直居中 */
+            gap: 20px;
+        }
+        /* .true{移除未使用的.true样式 
+            border-radius: 4px;
+            border:1px solid #2c3e50;
+        }*/
+
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+    <!--导航栏部分-修复语义化标签使用错误-->
+   <nav>
+    <div class="sider">
+        <section class="sider-title">Dashboard</section>
+        <nav class="sider-content"><!-- 导航应使用nav标签 -->
+                <a href="#">概览</a>
+                <a href="#">分析</a>
+                <a href="#">用户</a>
+                <a href="#">设置</a>
+                <a href="#">安全</a>
+        </nav>
+    </div>
+   </nav> 
+
+   <!--头部索引部分-->
+   <header class="header"><!-- 头部应使用header标签 -->
+    <div contenteditable="true">搜索...</div>
+    <div class="decoration">
+    <div class="decoration-1">🔔</div>
+    <div class="decoration-2">张</div>
+    <div class="decoration-3">张三</div>
+    </div>
+   </header>
+
+    <!--主内容部分-->
+    <main class="main-content">
+        <section class="card">
+            <div class="card-1">
+                <h3>总用户数</h3>
+                <p class="data">1,234</p>
+                <p>较上月增长 5%</p>
+            </div>
+            <div class="card-2">
+                <h3>活跃用户</h3>
+                <p class="data">567</p>
+                <p>较上月增长 8%</p>
+            </div>
+            <div class="card-3">
+                <h3>新注册用户</h3>
+                <p class="data">89</p>
+                <p>较上月增长 12%</p>
+            </div>
+        </section>
+        <section class="charts">
+            <h2>月度趋势</h2>
+            <p>
+            <progress value="70" max="100" ></progress><br>
+            <progress value="45" max="100"></progress><br>
+            <progress value="85" max="100"></progress><br>
+            <progress value="60" max="100"></progress><br>
+            <progress value="90" max="100"></progress>
+            </p>
+        </section>
+        <section class="work-list">
+            <form>
+                <h2>今日任务</h2>
+                <label>
+                    <input type="checkbox"> 完成css学习计划<br>
+                    <p class="checkbox-summary">前端开发</p>
+                </label>
+                <hr>
+                <label>
+                    <input type="checkbox"> 准备项目演示<br>
+                    <p class="checkbox-summary">团队会议</p></label>
+                <hr>
+                <label>
+                    <input type="checkbox"> 学习Grid布局<br>
+                    <p class="checkbox-summary">技能提升</p></label>
+            </form>
+        </section>
+        </main>
+    </div>
+    
+</body>
+</html>

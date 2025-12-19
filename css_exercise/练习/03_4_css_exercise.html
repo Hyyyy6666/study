@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+       *{
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+       } 
+       body{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        inline-size: 1.6;
+        color:#333;
+        background-color: #f9f9f9;
+       }
+       main{
+        display:grid;
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: "sidebar header""sidebar content";
+        height: 100vh;
+       }
+       .siderbar{
+        grid-area:sidebar;
+        background-color: #242D3C;
+        gap:50px;
+       /*height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        */
+       }
+       .header{
+        grid-area:header;
+        display: flex;
+        justify-content: space-around;
+        background-color: white;
+        box-shadow:2px 2px 4px rgba(0,0,0,0.3);
+       }
+       .content{
+        grid-area:content;
+        display:grid;
+        grid-template-rows: auto auto 1fr; /* 更精确的行高分配 */
+        gap: 20px; /* 增加模块间距 */
+        padding: 20px; /* 增加内边距 */
+        background-color: #F1F2F5;
+       }
+       .siderbar-logo{
+        color:#689FF7;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bolder;
+       }
+       .siderbar-content{
+        display: flex;
+        flex-direction:column;
+        margin:20px 0;
+        gap: 20px;
+        color: #B6BCC4;
+        font-size: 20px;
+       }
+       header{
+        display: flex;
+        justify-content: space-around;
+        padding:20px;
+        background-color: white;
+       }
+       .text{
+        border:1px solid #242D3C;
+        border-radius: 8px;
+        font-size: 15px;
+       }
+       .decoration{
+        display: flex;
+        gap:20px;
+       }
+       article{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+       }
+       .content-1{
+        display: grid;
+        margin: 20px;
+        grid-template-columns:1fr 1fr 1fr 1fr;
+        grid-template-rows:1fr;
+        padding:15px 0;
+       }
+       .card{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        gap:10px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        box-shadow:2px 2px 4px  rgba(0,0,0,0.3);
+        background-color: white;
+        transition: all 0.3s ease;
+       }
+       .card-title{
+        font-size:20px;
+        font-weight: bold;
+       }
+       .card-data{
+        color:#689FF7;
+        font-size:25px;
+        font-weight:bold;
+       }
+       .chart{
+        height:200px;
+        background: linear-gradient(180deg, #f8f9fa, #e9ecef);
+        border-radius: 8px;
+        margin: 10px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        padding:5px;
+        box-shadow:rgba(0,0,0,0.3);
+       }
+       .chart-bar{
+        width: 30px;
+        background: #689FF7;
+        border-radius:4px 4px 0 0;
+       }
+       .content-3{
+        margin: 20px;
+        padding:10px;
+        padding:5px;
+       }
+       .siderbar-content p{
+        padding:10px 0;
+        margin:0;
+        width:100%;
+        transition:all 0.3s ease;
+       }
+       .siderbar-content p:hover{
+        background-color: #333;
+       }
+       .card:hover{
+        transform:translateY(-5px);
+        box-shadow: rgba(0,0,0,0.8);
+       }
+       .text:focus {
+        outline: none;
+        border-color: #689FF7;
+        box-shadow: 0 0 0 2px rgba(104, 159, 247, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <main>
+    <section class="siderbar">
+        <div class="siderbar-logo">电商后台</div>
+        <div class="siderbar-content">
+                <p>数据概览</p>
+                <p>订单管理</p>
+                <p>商品管理</p>
+                <p>用户分析</p>
+                <p>营销中心</p>
+        </div>
+    </section>
+
+    <header>
+        <input type="text" placeholder="搜索订单/商品…" class="text">
+        <div class="decoration">
+            <p>🔔</p>
+            <p style="background-color: #689FF7; border-radius: 50%;">👤</p>
+            <p>电商管理员</p>
+        </div>
+    </header>
+
+    <article>
+        <section class="content-1">
+       <div class="card">
+        <div class="card-title">今日订单</div>
+        <div class="card-data">238</div>
+        <div class="card-percent">较昨日+12%</div>
+       </div> 
+       <div class="card">
+        <div class="card-title">今日销售额</div>
+        <div class="card-data">¥15,,689</div>
+        <div class="card-percent">较昨日+8%</div>
+       </div> 
+       <div class="card">
+        <div class="card-title">待发货</div>
+        <div class="card-data">56</div>
+        <div class="card-percent">较昨日+3</div>
+       </div> 
+       <div class="card">
+        <div class="card-title">退款申请</div>
+        <div class="card-data">8</div>
+        <div class="card-percent">较昨日-2</div>
+       </div> 
+       </section>
+
+       <section class="content-2">
+        <h2>近7天销售趋势</h2>
+        <div class="chart">
+            <div class="chart-bar" style="height: 70%;"></div>
+            <div class="chart-bar" style="height: 50%;"></div>
+            <div class="chart-bar" style="height: 85%;"></div>
+            <div class="chart-bar" style="height: 40%;"></div>
+            <div class="chart-bar" style="height: 80%;"></div>
+            <div class="chart-bar" style="height: 30%;"></div>
+            <div class="chart-bar" style="height: 70%;"></div>
+        </div>
+       </section>
+
+       <section class="content-3">
+        <h3>待处理订单</h3>
+        <div class="order">订单号：20251218001</div><br><hr>
+        <div class="order">订单号：20251218002</div><br><hr>
+        <div class="order">订单号：20251218003</div><br><hr>
+        <div class="order">订单号：20251218004</div><hr>
+       </section>
+    </article>
+    </main>
+</body>
+</html>
