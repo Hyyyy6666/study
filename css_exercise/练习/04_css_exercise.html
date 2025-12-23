@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">AnimateCSS</a>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#features">特性</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>创造惊艳的网页动画</h1>
+            <p>使用纯CSS实现流畅的动画效果，提升用户体验</p>
+            <a href="#features" class="cta-button animate-on-scroll">开始探索</a>
+        </div>
+    </section>
+    
+    <!-- 特性区域 -->
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">🎨</div>
+                <h3>平滑过渡</h3>
+                <p>使用CSS Transition实现元素状态的平滑变化，让交互更加自然流畅。</p>
+            </div>
+            
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">⚡</div>
+                <h3>关键帧动画</h3>
+                <p>通过@keyframes创建复杂动画序列，完全控制动画的每一个细节。</p>
+            </div>
+            
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">📱</div>
+                <h3>响应式设计</h3>
+                <p>使用媒体查询确保动画在不同设备上都能完美展现。</p>
+            </div>
+        </div>
+        
+        <!-- 加载动画示例 -->
+        <div class="loader"></div>
+    </section>
+</body>
+</html>

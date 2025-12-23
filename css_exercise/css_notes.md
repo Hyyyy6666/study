@@ -956,3 +956,330 @@ Grid 的尺寸规则核心是「容器决定轨道尺寸，子项适配轨道，
    - `fr` 单位是「剩余空间分配」，会先扣除 `px/%` 固定尺寸，再分配剩余空间（如你仪表盘里 `250px 1fr`，1fr = 视口宽度 - 250px）；
    - 子项默认「撑满单元格」，但可通过 `min-width/max-width` 限制自身尺寸（如你代码里 `.card-1 { min-width: 200px }`）；
 3. 滚动区域规则：子项开启overflow-y: auto子项设置height: 100%（继承容器轨道高度），否则滚动不生效（对应你.main-content的height: 100%）
+
+
+
+## 媒体查询
+
+#### 一、媒体查询核心概念
+
+媒体查询的本质是：**检测设备 / 浏览器的特征，满足条件时执行对应的 CSS 样式**。
+
+它由两部分组成：
+
+- **媒体类型**：指定应用样式的设备类型（如屏幕、打印、语音等）；
+- **媒体特性**：指定检测的具体条件（如屏幕宽度、分辨率、方向等）。
+
+#### 二、基础语法
+
+```css
+/* 基本结构 */
+@media [媒体类型] [媒体特性] {
+  /* 满足条件时执行的样式 */
+  选择器 {
+    属性: 值;
+  }
+}
+
+/* 简写（省略媒体类型，默认all） */
+@media (max-width: 768px) {
+  /* 样式 */
+}
+```
+
+#### 1. 媒体类型（可选）
+
+| 类型     | 说明                        | 常用场景       |
+| -------- | --------------------------- | -------------- |
+| `all`    | 所有设备（默认值）          | 通用样式       |
+| `screen` | 彩色屏幕设备（电脑 / 手机） | 网页响应式核心 |
+| `print`  | 打印设备 / 打印预览         | 优化打印样式   |
+| `speech` | 语音朗读设备                | 辅助功能适配   |
+
+#### 2. 核心媒体特性（重点）
+
+媒体特性需要用括号 `()` 包裹，支持 `min-`/`max-` 前缀（表示 “大于等于”/“小于等于”）：
+
+| 特性             | 说明                   | 示例                                                |
+| ---------------- | ---------------------- | --------------------------------------------------- |
+| `width`/`height` | 视口宽度 / 高度        | `max-width: 768px`                                  |
+| `device-width`   | 设备屏幕宽度（较少用） | `min-device-width: 320px`                           |
+| `orientation`    | 设备方向               | `orientation: portrait`（竖屏）/`landscape`（横屏） |
+| `aspect-ratio`   | 视口宽高比             | `min-aspect-ratio: 16/9`                            |
+| `resolution`     | 设备分辨率             | `min-resolution: 2dppx`（Retina 屏）                |
+
+#### 3. 逻辑运算符（组合条件）
+
+| 运算符      | 作用                 | 示例                                                         |
+| ----------- | -------------------- | ------------------------------------------------------------ |
+| `and`       | 同时满足多个条件     | `@media screen and (max-width: 768px) and (orientation: portrait)` |
+| `,`（逗号） | 满足任一条件         | `@media (max-width: 480px), (orientation: landscape)`        |
+| `not`       | 否定条件（少用）     | `@media not screen and (max-width: 768px)`                   |
+| `only`      | 兼容旧浏览器（少用） | `@media only screen and (max-width: 768px)`                  |
+
+
+
+注：
+
+1. 优先用 “移动优先”（推荐）或 “桌面优先”，不要随意自定义断点
+
+- 移动优先：先写移动端样式，再用 `min-width` 适配大屏（更符合现代开发）
+- 桌面优先：先写桌面样式，再用`max-width`适配小屏
+
+2. **视口设置（必加）**：移动端必须在 HTML `<head>` 中添加视口标签，否则媒体查询会失效
+
+3. **用断点参考（行业标准）**：
+
+   | 设备类型 | 断点（max-width） | 断点（min-width） |
+   | -------- | ----------------- | ----------------- |
+   | 小屏手机 | 480px             | 320px             |
+   | 大屏手机 | 767px             | 481px             |
+   | 平板     | 991px             | 768px             |
+   | 桌面     | 1199px            | 992px             |
+   | 大屏桌面 | -                 | 1200px            |
+
+### 总结
+
+1. 媒体查询核心是 `@media + 条件 + 样式`，通过检测设备特征适配不同场景；
+2. 常用场景是按 `width` 断点适配移动端 / 平板 / 桌面，务必配合视口标签使用；
+3. 推荐 “移动优先” 写法（先写移动端样式，再用 `min-width` 扩展大屏样式），代码更简洁、适配更精准；
+4. 核心断点参考：480px（小屏手机）、768px（平板）、992px（桌面）、1200px（大屏桌面）。
+
+
+
+## css动画
+
+### 一、CSS 动画的两种核心形式
+
+CSS 动画主要分两类，适用场景不同，先理清它们的区别：
+
+| 类型     | `transition`（过渡动画）                       | `@keyframes`（关键帧动画）                 |
+| -------- | ---------------------------------------------- | ------------------------------------------ |
+| 核心特点 | 元素**状态变化**时的平滑过渡（如 hover、点击） | 自定义多阶段动画序列（如旋转、浮动、加载） |
+| 触发方式 | 需事件触发（hover、class 变化、JS 触发）       | 自动执行（或配合 class 触发），支持循环    |
+| 复杂度   | 简单（仅起始 / 结束状态）                      | 复杂（可定义多个关键帧）                   |
+| 示例场景 | 按钮悬浮、导航下划线、卡片缩放                 | 加载动画、背景浮动、图标旋转、滚动渐入     |
+
+### 二、第一类：transition 过渡动画（简单易上手）
+
+#### 1. 核心语法
+
+```css
+/* 基础写法：指定过渡属性 + 时长 */
+选择器 {
+  transition: [属性] [时长] [速度曲线] [延迟];
+}
+
+/* 简写（推荐） */
+transition: all 0.3s ease;
+```
+
+| 参数     | 说明                                                         | 常用值                                                       |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 属性     | 要过渡的 CSS 属性（如 `all` 表示所有属性，`transform`/`background` 等） | `all`、`transform`、`opacity`、`width`                       |
+| 时长     | 过渡持续时间（必选，否则无效果）                             | `0.3s`、`500ms`（1s=1000ms）                                 |
+| 速度曲线 | 动画速度变化（缓动效果）                                     | `ease`（默认，慢 - 快 - 慢）、`linear`（匀速）、`ease-in`（慢进）、`ease-out`（慢出）、`ease-in-out` |
+| 延迟     | 动画延迟执行时间                                             | `0s`（默认）、`0.2s`                                         |
+
+#### 2. 实战示例（你代码里的经典用法）
+
+```css
+/* 示例1：导航文字下划线（你代码里的效果） */
+.nav-menu a {
+  position: relative;
+  /* 初始状态：下划线宽度0 */
+}
+.nav-menu a::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: #3498db;
+  /* 核心：过渡宽度变化 */
+  transition: width 0.3s ease;
+}
+/* hover触发：下划线宽度变为80% */
+.nav-menu a:hover::after {
+  width: 80%;
+}
+
+/* 示例2：按钮悬浮上移+阴影（你代码里的CTA按钮） */
+.cta-button {
+  transform: translateY(0); /* 初始位置 */
+  box-shadow: none; /* 初始无阴影 */
+  /* 过渡所有属性变化 */
+  transition: all 0.3s ease;
+}
+.cta-button:hover {
+  transform: translateY(-5px); /* 上移5px */
+  box-shadow: 0 10px 30px rgba(255,255,255,0.3); /* 出现阴影 */
+}
+
+/* 示例3：logo悬浮放大 */
+.logo {
+  transition: transform 0.3s; /* 仅过渡transform */
+}
+.logo:hover {
+  transform: scale(1.05); /* 放大1.05倍 */
+}
+```
+
+#### 3. 关键技巧
+
+- 优先过渡 `transform` 和 `opacity`（性能最好，不会触发浏览器重排），避免过渡 `width`/`height`/`margin`（会触发重排，性能差）；
+- 用 `all` 时要谨慎，只过渡需要变化的属性，减少性能消耗；
+- 过渡可以叠加，比如同时过渡位置、颜色、透明度。
+
+### 三、第二类：@keyframes 关键帧动画（复杂自定义动画）
+
+#### 1. 核心语法
+
+```css
+/* 步骤1：定义关键帧（动画序列） */
+@keyframes 动画名称 {
+  0% { /* 动画开始状态 */ }
+  50% { /* 动画中间状态 */ }
+  100% { /* 动画结束状态 */ }
+}
+
+/* 步骤2：给元素应用动画 */
+选择器 {
+  animation: [动画名称] [时长] [速度曲线] [延迟] [循环次数] [方向] [填充模式];
+}
+```
+
+| `animation` 参数 | 说明                                 | 常用值                                                      |
+| ---------------- | ------------------------------------ | ----------------------------------------------------------- |
+| 动画名称         | 对应 `@keyframes` 定义的名称（必选） | 自定义（如 `spin`、`float`、`fadeUp`）                      |
+| 时长             | 动画持续时间（必选）                 | `1s`、`20s`                                                 |
+| 速度曲线         | 同 `transition` 的速度曲线           | `ease`、`linear`（匀速，适合循环动画）                      |
+| 延迟             | 动画延迟执行时间                     | `0s`、`0.2s`                                                |
+| 循环次数         | 动画执行次数                         | `1`（默认）、`infinite`（无限循环）                         |
+| 方向             | 动画播放方向                         | `normal`（默认）、`reverse`（反向）、`alternate`（往返）    |
+| 填充模式         | 动画前后元素的样式状态               | `forwards`（保持结束状态）、`backwards`（初始应用开始状态） |
+
+#### 2. 实战示例（你代码里的经典用法）
+
+```css
+/* 示例1：背景浮动动画（你代码里的hero背景） */
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); } /* 初始位置 */
+  100% { transform: translateY(-30px) translateX(-30px); } /* 结束位置 */
+}
+.hero::before {
+  /* 应用动画：无限循环、匀速 */
+  animation: float 20s linear infinite;
+}
+
+/* 示例2：加载动画（旋转圆圈） */
+@keyframes spin {
+  0% { transform: rotate(0deg); } /* 初始旋转0度 */
+  100% { transform: rotate(360deg); } /* 结束旋转360度 */
+}
+.loader {
+  animation: spin 1s linear infinite; /* 1秒一圈、匀速、无限循环 */
+}
+
+/* 示例3：卡片渐入动画 */
+@keyframes cardAppear {
+  to { /* 等价于100% */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.feature-card.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  /* 应用动画：0.6秒、缓动、保持结束状态 */
+  animation: cardAppear 0.6s ease forwards;
+}
+
+/* 示例4：英雄区内容渐入 */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* 初始在下方、透明 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* 结束在原位、不透明 */
+  }
+}
+.hero-content {
+  animation: fadeUp 1s ease; /* 1秒完成渐入 */
+}
+```
+
+#### 3. 关键技巧
+
+- 关键帧可以用 `from`（等价 0%）、`to`（等价 100%）简化写法，多阶段动画用百分比；
+- 循环动画（如加载、背景浮动）用 `linear` 速度曲线，避免卡顿；
+- 用 `forwards` 填充模式让动画结束后保持最后一帧状态（如渐入后不回到透明）；
+- 多个元素的动画可以通过 `animation-delay` 设置延迟，实现依次出现（如你代码里的卡片延迟 0.2s）。
+
+### 四、CSS 动画性能优化（避坑指南）
+
+动画卡顿是新手常见问题，核心原则：**只动画 `transform` 和 `opacity`**，原因是这两个属性仅触发浏览器 “合成层” 更新，不触发重排 / 重绘，性能最优。
+
+#### 1. 推荐动画属性（高性能）
+
+- `transform`：`translate()`（位移）、`scale()`（缩放）、`rotate()`（旋转）、`skew()`（倾斜）；
+- `opacity`：透明度。
+
+#### 2. 避免动画的属性（低性能）
+
+- 布局属性：`width`、`height`、`margin`、`padding`、`top`、`left`；
+- 绘制属性：`background-color`、`box-shadow`、`border-radius`（偶尔用可以，频繁循环不推荐）。
+
+#### 3. 优化小技巧
+
+- 给动画元素添加
+
+   
+
+  ```
+  will-change: transform
+  ```
+
+  ，告诉浏览器提前优化：
+
+  ```css
+  .feature-icon {
+    will-change: transform; /* 提示浏览器该元素要做transform动画 */
+    transition: transform 0.3s;
+  }
+  ```
+
+  
+
+- 循环动画时长不要太短（如小于 0.5s），避免视觉闪烁；
+
+- 移动端动画时长可稍短（0.2-0.3s），桌面端可稍长（0.3-0.5s），符合用户体验习惯。
+
+### 五、动画触发方式（结合 JS）
+
+纯 CSS 动画可通过 hover、focus 触发，结合 JS 可实现更灵活的触发（如滚动、点击、页面加载）：
+
+```javascript
+// 示例1：滚动触发动画（你代码里的IntersectionObserver）
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible'); // 添加class触发动画
+    }
+  });
+});
+
+// 示例2：点击按钮触发动画
+const btn = document.querySelector('.btn');
+btn.addEventListener('click', () => {
+  const box = document.querySelector('.box');
+  box.classList.add('animate'); // 给元素添加动画class
+});
+```
+
+### 总结
+
+1. CSS 动画分两类：`transition` 适合简单状态过渡（需触发），`@keyframes` 适合复杂自定义动画（可自动 / 循环）；
+2. 高性能动画优先用 `transform`（位移 / 缩放 / 旋转）和 `opacity`，避免动画布局类属性；
+3. 关键参数：`transition` 核心是 “时长 + 速度曲线”，`@keyframes` 核心是 “关键帧 + 循环次数 + 填充模式”；
+4. 结合 JS 可实现滚动、点击等自定义触发，是现代网页动效的核心组合。

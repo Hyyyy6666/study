@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            inline-size: 1.6;
+            color:#333;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+        }
+        main{
+            display:grid;
+            grid-template-areas: "aside header""aside article";
+            grid-template-rows: 70px 1fr;
+            grid-template-columns: 250px 1fr; 
+            height: 100vh;
+        }
+        header{
+            grid-area:header;
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+            gap:200px;
+            padding: 5px 20px;
+            background-color: white;
+        }
+       header input{
+            flex-grow: 1;
+            min-width:200px;
+            border:0.5px solid gray;
+            border-radius: 20px;
+            height: 80%;
+            box-shadow:1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .decoration{
+            flex-shrink:0;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 20px;
+            font-size: 25px;
+            font-weight:300;
+
+        }
+        .decor2{
+            height: 40px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            background-color: #5f98d5;
+        }
+        aside{
+            grid-area:aside;
+            background-color: #313d4d;
+            padding:30px 0;
+        }
+        .logo{
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: bolder;
+            font-size: 30px;
+            color:#5f98d5;
+        }
+        .aside-content{
+            list-style: none;
+        }
+        /*？？？？*/
+        .aside-content li{
+            padding:15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: white;
+            font-weight: bold;
+            font-size:20px;
+            transition:all 0.3s ease;
+        }
+        .aside-content li:hover{
+            background-color: #3498db;
+        }
+        .content-1{
+            background-color: #5f98d5;
+        }
+    
+        article{
+            grid-area:article;
+            display:grid;
+            grid-template-rows:1fr 1fr 1fr;
+            background-color: #f1f2f5;
+        }
+        .card{
+            display: flex;
+            flex-wrap: wrap;
+            padding:20px;
+            gap:25px;
+        }
+        .card-1{
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap:15px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+        }
+        .data{
+            font-weight: bold;
+            font-size:24px;
+            color:#5f98d5;
+        }
+        .card-content{
+            color:gray;
+            font-size: smaller;
+        }
+         /* 图表容器：模拟柱状图背景，flex 布局实现柱状图横向排列 */
+         .chart-container {
+            height: 200px;
+            width: 100vh;
+            background: linear-gradient(180deg, #f8f9fa, #e9ecef);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end; /* 柱状图底部对齐 */
+            justify-content: space-around; /* 柱子均匀分布 */
+            padding: 10px;
+            gap:20px;
+        }
+        
+        /* 柱状图样式：添加背景色和圆角 */
+        .chart-bar {
+            width: 30px;
+            background: #3498db;
+            border-radius: 4px 4px 0 0;
+        }
+        .task{
+            padding:10px;
+            margin:20px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+    <header>
+        <input type="text" placeholder="🔍搜索...">
+        <div class="decoration">
+            <div class="decor1">🔔</div>
+            <div class="decor2">张</div>
+            <div cass="decor3">张三</div>
+        </div>
+    </header>
+
+    <aside>
+            <div class="logo">Dashboard</div>
+            <ul class="aside-content">
+                <li class="content-1">📊 概览</li>
+                <li>📈 分析</li>
+                <li>👥 用户</li>
+                <li>⚙️ 设置</li>
+                <li>🔒 安全</li>
+            </ul>
+    </aside>
+
+    <article>
+        <section class="card">
+            <div class="card-1">
+                <h3>用户总数</h3>
+                <div class="data">1,284</div>
+                <div class="card-content">较上月增长12%</div>
+            </div>
+            <div class="card-1">
+                <h3>本月收入</h3>
+                <div class="data">¥45,680</div>
+                <div class="card-content">较上月增长8%</div>
+            </div>
+            <div class="card-1">
+                <h3>活跃用户</h3>
+                <div class="data">846</div>
+                <div class="card-content">在线率6%</div>
+            </div>
+        </section>
+
+        <section class="card" style="grid-column: span 2;">
+                <div class="card-header">
+                    <h3 class="card-title">月度趋势</h3>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-bar" style="height: 80%;"></div>
+                    <div class="chart-bar" style="height: 60%;"></div>
+                    <div class="chart-bar" style="height: 90%;"></div>
+                    <div class="chart-bar" style="height: 70%;"></div>
+                    <div class="chart-bar" style="height: 85%;"></div>
+                </div>
+            </section>
+
+        <section class="task">
+            <h3>今日任务</h3>
+            <label>
+                    <input type="checkbox"> 完成css学习计划<br>
+                    <p class="checkbox-summary">前端开发</p>
+                </label>
+                <hr>
+                <label>
+                    <input type="checkbox"> 准备项目演示<br>
+                    <p class="checkbox-summary">团队会议</p></label>
+                <hr>
+                <label>
+                    <input type="checkbox"> 学习Grid布局<br>
+                    <p class="checkbox-summary">技能提升</p></label>
+            </form>
+        </section>
+    </article>
+    </main>
+</body>
+</html>
