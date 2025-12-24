@@ -99,13 +99,15 @@
             grid-area:article;
             display:grid;
             grid-template-rows:1fr 1fr 1fr;
+            width:100%;
             background-color: #f1f2f5;
         }
         .card{
             display: flex;
             flex-wrap: wrap;
-            padding:20px;
-            gap:25px;
+            width: 100%;
+            margin:20px;
+            gap: 10px;
         }
         .card-1{
             min-width: 250px;
@@ -113,8 +115,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap:15px;
-            padding: 10px;
             background-color: white;
             border-radius: 15px;
             box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
@@ -129,6 +129,12 @@
             font-size: smaller;
         }
          /* 图表容器：模拟柱状图背景，flex 布局实现柱状图横向排列 */
+         .trend{
+            display: flex;
+            flex-direction: column;
+            margin:20px;
+            gap: 20px;
+         }
          .chart-container {
             height: 200px;
             width: 100vh;
@@ -148,8 +154,32 @@
             border-radius: 4px 4px 0 0;
         }
         .task{
+            display: flex;
+            flex-direction: column;
             padding:10px;
             margin:20px;
+        }
+        .task-list{
+            display:flex;
+            align-items: center;
+            padding:10px 0;
+            gap:20px;
+        }
+        .check{
+            display: flex;
+            align-items: center;
+            gap:20px;
+            width: 100%;
+        }
+        .checkbox{
+            height: 10px;
+            aspect-ratio: 1/1;
+            border: solid #333;
+            background-color: white;
+        }
+        .checkbox-summary{
+            font-size: small;
+            color: gray;
         }
 
     </style>
@@ -193,9 +223,14 @@
                 <div class="data">846</div>
                 <div class="card-content">在线率6%</div>
             </div>
+            <div class="card-1">
+                <h3>退货总数</h3>
+                <div class="data">8</div>
+                <div class="card-content">较上月减少5%</div>
+            </div>
         </section>
 
-        <section class="card" style="grid-column: span 2;">
+        <section class="trend" style="grid-column: span 2;">
                 <div class="card-header">
                     <h3 class="card-title">月度趋势</h3>
                 </div>
@@ -210,19 +245,38 @@
 
         <section class="task">
             <h3>今日任务</h3>
-            <label>
-                    <input type="checkbox"> 完成css学习计划<br>
-                    <p class="checkbox-summary">前端开发</p>
-                </label>
-                <hr>
-                <label>
-                    <input type="checkbox"> 准备项目演示<br>
-                    <p class="checkbox-summary">团队会议</p></label>
-                <hr>
-                <label>
-                    <input type="checkbox"> 学习Grid布局<br>
-                    <p class="checkbox-summary">技能提升</p></label>
-            </form>
+            <div class="task-list">
+                <div class="check">
+                <div class="checkbox"></div>
+                <div class="checkbox-content">
+                    <div class="check-box title"> 完成css学习计划</div>
+                    <div class="checkbox-summary">前端开发</div>
+               </div>
+            </div>
+               <div class="priority" style="background-color: red;height:10px;aspect-ratio:1/1;border-radius: 50%;"></div>     
+            </div>
+            <hr>
+             <div class="task-list">
+                <div class="check">
+                <div class="checkbox"></div>
+                <div class="checkbox-content">
+                    <div class="check-box title"> 准备项目演示</div>
+                    <div class="checkbox-summary">团队会议</div>
+               </div>
+               </div>
+               <div class="priority" style="background-color: orange;height:10px;aspect-ratio:1/1;border-radius: 50%;"></div>     
+            </div>
+            <hr>
+             <div class="task-list">
+                <div class="check">
+                <div class="checkbox"></div>
+                <div class="checkbox-content">
+                    <div class="check-box title"> 学习Grid布局</div>
+                    <div class="checkbox-summary">技能提升</div>
+               </div>
+               </div>
+               <div class="priority" style="background-color: green;height:10px;aspect-ratio:1/1;border-radius: 50%;"></div>     
+            </div>
         </section>
     </article>
     </main>
