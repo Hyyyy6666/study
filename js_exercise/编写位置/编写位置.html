@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编写位置</title>
+    <!--1.可以编写到网页内部的script标签中-->
+    <!--<script type="text/javascript">
+        alert("haha")
+    </script>
+    -->
+
+    <!--2.可以将js编写到外部js文件中，然后通过script标签引用-->
+    <script src="./script.js"></script>
+</head>
+<body>
+    <!--3.可以编写到标签属性中-->
+    <button onmousemove="alert('你点我干嘛')">再点一下</button>
+    <button onclick="alert('你点我干嘛')">点我一下</button>
+    
+
+    <hr>
+
+
+    <a href=" javascript:alert(123);">超链接</a>
+    <a href=" javascript:;">超链接</a>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container-1{
+            height: 500px;
+            aspect-ratio: 1/1;
+            font-size: 48px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: pink;
+            border:10px solid red;
+            color:red;
+            transition:background-color 0.3s,color 0.3s;
+            transition-delay: 0.3s;
+        }
+        .container-1:hover{
+            transform: translateY(-5px);
+            background-color: red;
+            color: white;
+        }
+
+        .container-2{
+            background-color: red;
+            color:white;
+            border: 5px solid red;
+            height: 300px;
+            aspect-ratio: 1/1;
+            margin:200px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            animation-name: spin;
+            animation-duration: 3s;
+            animation-timing-function: ease-out;
+            animation-delay: 1s;
+            animation-iteration-count:infinite;
+        }
+        @keyframes spin{
+            0%{
+                background-color: pink;
+                color:white;
+            }
+            50%{
+                scale:1.5;
+                transform:rotate(0);
+                border-radius:0;
+                background-color: orangered;
+            }
+            100%{
+                transform:rotate(360deg);
+                border-radius:50%;
+                scale:1.5;
+                background-color: red;
+                color:pink;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+    <div class="container-1">
+        Hello world!
+    </div>
+
+    <div class="container-2">
+        廖总，超可爱
+    </div>
+    </main>
+</body>
+</html>

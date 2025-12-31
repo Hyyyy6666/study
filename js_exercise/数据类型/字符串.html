@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /* 
+        字符串
+            -在js中使用单引号或者双引号表示字符串
+            -转义字符 \
+                \"   "
+                \'   '
+                \\   \
+                \t   制表符
+                \n    换行
+            -末班字符串
+                -使用返单一号`表示模版字符串
+                -可以嵌入变量
+            -使用typeof检查一个字符串类型，会返回string
+        */
+        let a = 'Hello'
+        a = "你好"
+
+
+        a = "今天天气真不错"//引号不能跨行，跨行报错
+        let name = "孙悟空"
+
+        let str = `你好，${name}`
+        let b = 10
+        console.log(str)
+        console.log(`b = ${b}`)
+
+
+        let c = 5
+        console.log(typeof c)
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
