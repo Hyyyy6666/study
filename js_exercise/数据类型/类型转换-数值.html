@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Script>
+        /* 
+            其他数据类型转换为数值
+                1.使用Number（）函数来讲其他类型转换为数值
+                    转换情况
+                        -字符串：
+                            -如果字符串是一个合法数字，就可以正常转换
+                            -如果不是合法数字，则转换为NaN
+                            -空串或纯空格，则转换为0
+
+                        -布尔值
+                            -true转换为1
+                            -false转换为0
+
+                        -NaN和undefined
+                            -null  转换为0
+                            -undefined 转为NaN
+
+
+                专门用来将自付出啊转换为数值的两个方法
+                    parseInt（）  将一个字符串转换为一个整数
+                        -解析时，会自左向右读取一个字符串，知道读取到字符串中所有有效整数
+                        -也可以用parseint（）对一个数进行取整
+                    parseFloat（）  建一个字符串转换为浮点数
+                        -解析时，会自左向右读取一个字符串，知道读取到字符串中所有有效小数
+
+
+
+        */
+
+
+        let a = '123'
+        console.log(a)
+
+
+        a = Number(a)
+
+        console.log(typeof a , a )
+
+
+
+
+    </Script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>
