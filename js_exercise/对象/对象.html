@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /* 
+            数据类型
+                原始值
+                    1. 数值 Number
+                    2. 大整数 BigInt
+                    3. 字符串 String
+                    4. 布尔值 Boolean
+                    5. 空值 Null
+                    6. 未定义 Undefined
+                    7. 符号 symbol
+                    原始值只能用来表示一些简单的数据，不能表示复杂数据
+
+
+                对象
+                    -对象是JS中的一种复合数据类型
+                        它相当于一个容器，在对象中可以存储各种不同类型数据
+                    -想对象中添加属性：
+                        对象.属性名 = 属性值
+                    -读取对象中的属性：
+                        对象.属性名
+                        -如果读取的是一个对象中没有的属性，返回undefined
+                        
+
+        */
+
+        //创建对象
+        let obj = new Object()//new可以省去
+
+        /* 
+            对象中可以存储多个类型数据
+                对象中存储的数据，我们成为属性
+            
+            想兑现各种添加属性：
+                对象，属性名 = 属性值
+        */
+
+        obj.name = '孙悟空'
+        obj.age = 18
+        obj.gender = '男'
+
+
+        obj.name = 'Tom sun'
+
+        //删除属性
+        delete obj.name
+        console.log(obj.age)
+        console.log(obj)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

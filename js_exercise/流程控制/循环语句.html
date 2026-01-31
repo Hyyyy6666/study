@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <Script>
+        /* 
+            循环语句
+                -通过循环语句可以使置顶的代码反复执行
+                -JS中一共有三种循环语句
+                    while语句
+                    do-while语句
+                    for语句
+                -while语句
+                    -语法：
+                        while（条件表达式）{
+                            语句...
+                        }
+
+                    -执行流程：
+                        while语句在执行时，会先对条件表达式进行判断。
+                            如果结果为true，则执行循环体，执行完毕，继续判断
+                            直到结果表达式为false，循环结束
+
+                    -当一个循环的条件表达式恒为true，这个循环就是一个死循环，会一直循环（慎用）
+                    -编写要点
+                        1.初始化表达式（初始化变量）
+                        2.条件表达式（设置循环运行的条件）
+                        3.更新表达式
+
+
+                - do-while语句
+                    -语法：
+                        do{
+                            语句...
+                        }while(条件表达式)
+
+                    -执行流程：
+                        do-while语法在执行时，会先执行do后的循环体，
+                            执行完毕后，会对while后的条件表达式进行判断
+                            如果结果为false，循环终止
+                            如果结果为true，则继续执行循环体，以此类推
+                        和while区别
+                            while先判断在执行
+                            do-while先执行再判断
+
+                            实质区别：
+                                do-while语句可以确保循环至少执行一次
+
+                -for语句
+                    -语法：
+                        for（1.初始化表达式;2.条件表达式;4.更新表达式）{
+                            3.语句...
+                        }
+                    -执行流程：
+                        1. 执行初始化表达式，初始化变量
+                        2.执行条件表达式，判断循环是否执行（true执行，false终止）
+                        3.判断结果为true，则执行循环体
+                        4.执行更新表达式，对初始化变量进行修改
+                        5.重复，直到判断为false为止
+
+                    - 初始化表达式，在循环的整个声明周期中，只会执行一次
+                    -for循环的三个表达式都可以省略
+                    -使用let在for循环中声明的变量是局部变量，只能在for循环内部访问
+                     只用var在for循环中声明的变量可以在for循环外访问
+                    
+                    - 创建死循环的方式：
+                        while（1）{}
+                        for（;;）{}
+
+                -循环的嵌套
+                    
+        */
+
+        /* //初始化表达式
+        let a = 0
+        
+        //条件表达式
+        while (a < 5){
+            console.log(a);
+
+            //更新表达式
+            a++
+        } */
+
+
+
+        /* let deposite = 1000
+        let count = 0
+        while(deposite < 5000){
+            deposite *= 1.05
+            count++
+        }
+        alert(`存款变成5000，需要${i}年,最终金额为${deposite}`) */
+
+        /* let count = 0
+        let sum = 0
+        for(let num = 3;num <= 100; num+=3){
+            if(num % 3 == 0){
+                count++
+                sum += num
+            }
+        console.log(num)
+        }
+        console.log(`3的倍数有${count}个，它们的总和为${sum}`); */
+
+        
+        /* for(let num = 100 ; num < 1000 ; num++){
+            let a = num % 10
+            let b = parseInt( num / 100)
+            let c = parseInt( num / 10 - 10 * b)//parseInt(( num - b * 100) / 10)
+            if( num == a ** 3 + b ** 3 + c ** 3)
+            console.log(num)
+        } */
+
+        /* for(let i = 100 ; i <1000 ; i++){
+            let strI = String(i)// strI = i + ''
+            if(strI[0] ** 3 + strI[1] ** 3 + strI[2] ** 3 == i)
+            console.log(i)
+        } */
+        /* 
+            字符串索引
+        */
+
+       /*  let num = +prompt('请输入一个数')
+        let Flag = 1
+        for(let i = 2 ; i < num ;i++){
+            if(num % i == 0){
+            Flag = 0
+            break
+            }
+        }
+        if(Flag){
+            console.log(`${num}是素数`)
+        }else{
+            console.log(`${num}不是素数`)
+        } */
+        
+        //循环嵌套
+        //换行：document.write<br>  console.log \n
+
+/* 
+        for(let num = 0; num < 5; num++){
+            for(let j = 0; j < 5 ; j++){
+                 document.write('*&nbsp;&nbsp')
+            }
+            document.write('<br>')
+        }
+        
+        document.write('<hr>')
+
+        /* 
+            当循环发生嵌套，外层每执行一次，内层循环就会执行一个完整的周期
+        */
+
+        /* for(let i = 0; i < 5; i++){
+            for(let j =0; j < i; j++){
+                document.write('* &nbsp;&nbsp')
+            }
+            document.write('<br>')
+        }
+        document.write('<hr>')
+
+        for(let i = 0 ;i < 5; i++){
+            for( let j = 0 ; j < 5 - i;j++){
+                document.write('*&nbsp')
+            }
+            document.write('<br>')
+        }
+        document.write('<hr>')
+
+
+        for(let i = 1;i <= 9 ;i++){
+            for(let j = 1 ;j < i + 1 ;j++){
+                document.write(`<span>${j} × ${i} = ${i*j}</span>`)
+            }
+            document.write('<br>')
+        }  */
+
+        //console.time('质数练习')
+        for(let i = 2; i < 100 ;i++){
+            Flag = 1
+            for(let j = 2; j <= i ** 0.5 ; j++){
+                if(i % j == 0){
+                    Flag = 0
+                    break 
+                }
+            }
+            if(Flag){
+                console.log(i)
+            }
+        }
+        //console.timeEnd('质数练习')
+        //console.time()开启计时器  console.timeEnd()终止计时器
+
+    </Script>
+
+    <style>
+        span{
+            display: inline-block;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

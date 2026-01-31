@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        /* 
+            定义一个可以求任意两个数和的函数
+        */
+       function fn(){
+            console.log(1 + 1)
+       }
+
+       /*  const fn2 = function(){
+            console.log( 1 + 1)
+       }
+
+       const fn3 = () =>{
+            console.log( 1 + 1 )
+       } 
+
+       fn()
+       fn2()
+       fn3() */
+/* 
+       function sum(a , b){
+            let a  = 123
+            let b = 456
+            console.log(a + b)
+       } */
+
+       /* 
+            形式参数
+                -在定义函数时，可以在函数中置顶数量不等的参数
+                -在函数中定义参数，就相当于在函数内部声明了对应的变量，但是没有赋值
+            实际参数
+                -在调用函数时，可以在函数的（）传递数量不等的实参
+                -实参会赋值给对应的形参
+
+            参数：
+                1.如果实参和形参数量相同，则对应的实参赋值会对应的形参
+                2.如果实参多于形参，则多余的实参会被忽略
+                3.如果实参少于形参，则多余的形参会被赋值为undefined
+
+            函数的定义方式：
+            1.函数声明式
+                    function 函数名（）{
+                        语句...
+                    }
+
+                2.函数表达式
+                    const 变量 = function(){
+                        语句...
+                    }
+
+                3.箭头函数
+                    （） => {
+                        语句...
+                    }   
+
+            
+
+    
+       */
+
+       function fn (a, b){
+        console.log("a = ", a)//undefined出现证明已经声明但没有赋值
+        console.log("b = ", b)
+       }
+       fn(123,456)
+
+
+       function sum( a, b){
+        console.log(a + b)
+       }
+       sum(5,6)
+
+
+       </script>
+</head>
+<body>
+    
+</body>
+</html>

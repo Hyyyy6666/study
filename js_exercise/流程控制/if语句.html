@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IF</title>
+    <script>
+        /* 
+            流程控制语句可以用来改变程序执行的顺序
+                1.条件判断语句
+                2.条件分支语句
+                3.循环语句
+
+
+            if语句
+                - 语法：
+                    if（条件表达式）{
+                        语句...
+                    }
+
+
+                -执行流程
+                    if局域在执行会对if后的条件表达式进行求值判断
+                        如果结果为true，则执行if后的语句
+                        如果为false则不执行
+
+                    if语句只会控制紧随其后的那一行代码，如果希望控制多行代码，可以使用大括号将语句括起来
+
+                    如果if后的表达式不是布尔值，会转换为布尔值然后再运算
+        */
+
+        /* 
+            if-else语句
+                -语法：
+                    if（条件表达式）{
+                        语句...
+                    }else{
+                        语句...
+                    }
+
+
+                -执行流程
+                    if-else执行时，先对条件表达式进行求值判断，
+                        如果结果为true，则执行if后的语句
+                        如果结果为false，则执行else后的语句
+
+
+                if-else if-else语句
+                -语法：
+                    if（条件表达式）{
+                        语句...
+                    }else if{
+                        语句...
+                    }else if{
+                        语句...
+                    }else if{
+                        语句...
+                    }else if{
+                        语句...
+                    }
+                -执行流程：
+                    会自上而下，依次对if后面的条件表达式进行求值判断
+                        如果条件表达式结果为true，则执行当前if后的语句，执行完毕语句结束
+                        如果条件表达式结果为false，则继续向西阿判断，知道找到true为止
+                        如果所有的条件表达式都是false，则执行else后语句
+                    
+
+        */
+         
+        /* 
+            switch语句
+            -语法：
+                switch(表达式){
+                    case 表达式：
+                        代码...
+                        break
+                    case 表达式：
+                        代码...
+                        break
+                    case 表达式：
+                        代码...
+                        break
+                    case 表达式：
+                        代码...
+                        break
+                    default(都不满足时执行，作用类似else，位置不固定):
+                        代码...
+                }
+
+            -执行流程
+                switch语句在执行时，会依次将Switch后的表达式和case后的表单式进行全等（===）比较
+                    如果比较结果为true，则自当前case处开始执行代码
+                    如果比较结果为false，则继续比较其他case后的表达式，知道找到true为止
+
+                
+        
+        */
+
+       /*  
+       /* //let num = +prompt("请输入一个整数：") */
+      /*  let num = parseInt（prompt（'请输入一个整数：'））
+            -该语句可以取整，对小数进行处理
+        //先验证输入是否合法，只有有效数字，我们才检查奇数偶数
+        //我们不能使用==或者===来检查一个值是否是NaN
+        //可以用NaN（）函数来检查
+        if(isNaN(num)||num % 1 !== 0){
+            alert('你的输入有问题，请输入整数')
+        }
+        else{
+        if (num <=0){
+            console.log('${num}既不是奇数也不是偶数')
+        }else if(num%2==0){
+            document.write("${num}是偶数")
+        }else{
+            alert('${num}是奇数')
+        }
+        } */
+
+
+        /* alert(typeof num) */ 
+        //prompt（）可以将用户输入的内容以字符串的形式返回，可以通过变量来接受
+        //if else 可以进行嵌套
+
+
+        /* let height = +prompt("请输入身高（厘米）：")
+        let money = +prompt('请输入身价（万）')
+        let face = +prompt('请输入帅气值（像素）')
+        //alert(height + '--' + money + '--' + face )
+        // 对输入数值进行检查
+        if(height>180 && money>1000 && face>500){
+            alert('我一定要嫁给他')
+        }else if(height>180||face>500||money>1000){
+            alert('嫁吧，比上不足比下有余')
+        }else{
+            alert('不嫁！')
+        } */ 
+        
+
+       /*  let grade =  +prompt('请输入成绩')
+        //检查grade是否合法
+        if(isNaN(grade)||grade<0||grade>100){
+            alert('请输入合法成绩')
+        }else{
+            if(grade === 100){
+                alert('奖励一辆BMW')
+            }else if(grade >= 80){
+                alert('奖励一台IPhone')
+            }else if(grade >= 60){
+                alert('奖励一本参考书')
+            }else{
+                alert('什么奖励都没有')
+        }
+        }  */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

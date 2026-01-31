@@ -284,7 +284,7 @@ HTML 表格的最小组成单元是 **行（`<tr>`）** 和 **单元格（`<td>`
        width: 100%;
        height: 60px;
        background: #fff;
-       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+       box-shadow: 0 10px 20px rgba(0,0,0,0.1);/*  */
        z-index: 999; /* 控制层叠顺序，避免被其他元素覆盖 */
      }
      .content {

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let obj = new Object()
+
+        /* 
+            属性名
+                -通常属性名就是一个字符，所以属性名可以是任何值，没有特殊要求
+                    但是属性名泰国特殊，不能直接使用，需要使用中括号
+                    虽然如此，但是不建议使用关键字，尽量按标识符的规范命名
+
+                -也可以使用符号（symbol）作为属性名
+                    获取这种属性时，也必须使用symbol
+
+
+                -使用[]去操作属性时，可以使用变量
+                
+
+            属性值
+                -对象可以是任意数据类型，也可以是对象
+
+            使用typeof检查对象时返回object
+
+            in运算符
+                -用来检查对象中是否含有某个属性
+                -语法：属性名 in obj
+                    -如果有，返回true
+                    -如果没有，返回false
+
+        */
+        /* obj.if = '哈哈'
+
+        obj.let = '@#R$^^'
+
+        obj.name = '孙悟空'
+        obj['23455@#$%%'] = 'hehe'//如果泰国特殊，就用[]
+
+
+        let mySymbol = Symbol()
+        //使用symbol作为属性名
+
+        obj[mySymbol] = "通过symbol添加的属性"
+
+        console.log(typeof mySymbol)
+        console.log(obj)
+        console.log(obj[mySymbol])
+ */
+
+        /* obj.age = 18 
+        obj['gender'] = 'male'
+
+        console.log(obj.gender)
+        console.log(obj[gender])
+
+        let str = 'address'
+
+        //obj['address'] = '花果山'
+        obj[str] = '花果山'//此时中括号内不能再加引号，再加引号就变成添加字符串了
+        //此时不能再用obj.str = '哈哈'
+
+
+
+        console.log(obj) */
+
+        obj.a = 12
+        obj.b = 'hahaha'
+        obj.c = ' 555555'
+
+        let f = Object()
+        obj.f.name = '猪八戒'
+        console.log(obj.f.name)
+
+        console.log(typeof obj)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
