@@ -40,7 +40,7 @@
 
         */
 
-
+/* 
         //创建一个函数对象
         function fn(){
             console.log("hello function")
@@ -54,10 +54,66 @@
             result = a + b + c
             return result
         }
-        result = fn2(10,20,30,40)
+        result = fn2("hello",",","world")
         console.log(result)
 
-    </script>
+
+        const fn3 = (a) => {
+            console.log("a =",a)
+            
+        }
+
+        fn3(100)
+        //当且仅当传一个参数的时候可以省略括号（）
+
+
+        //定义参数，可以为参数指定默认值
+        //默认值会在没有对应实参时生效
+        const fn4 = (a = 100) => {
+            console.log(a)
+        }
+        fn4(1)
+
+
+
+
+
+
+        function fn5(a) {
+            a = {}//a指向了一个新的对象
+            a.name = "猪八戒"//修改对象时，如果有其他变量指向该对象，则所有指向该对象的变量都会受到影响
+            console.log(a)
+        } 
+        let obj = {name : "孙悟空"}
+
+        fn5(obj)
+
+        //传递实参时，传递并不是变量本身，而是变量中储存的值
+
+        console.log(obj)
+ 
+        //在函数外部定义对象，使用默认值时会指向同一个对象
+        //在函数定义时定义对象，每一次函数调用都会创建一个新的对象
+
+
+
+
+        //函数做参数
+        /* 
+            在JS中，函数也是一个对象（一等函数）
+                别的对象能做到的事情，函数也可以做到
+        */
+
+        /* function fn7(){
+            console.log("我是fn7")
+        }
+        function fn6(a){
+            a()
+        }
+
+        fn6(fn7) */ 
+
+        </script>
 </head>
 <body>
     

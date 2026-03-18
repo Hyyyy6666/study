@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /* 
+            在开发中应该尽量减少直接在全局作用域中编写代码
+
+            尽量编写到局部作用域
+
+            如果使用let声明的变量，
+            1.需要使用{}来创建块作用域
+            2.使用立即执行函数来创建作用域
+
+
+
+        */
+
+        //立即执行函数
+            //立即是一个匿名的函数，只会调用一次
+            //可以利用它来创建一个一次性的函数作用域，避免变量冲突的问题
+
+        (function (){
+            let a = 10
+            console.log(a)
+        })();
+        //手动添加即可
+
+        (function (){
+            let a = 20
+            console.log(a)
+        })()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

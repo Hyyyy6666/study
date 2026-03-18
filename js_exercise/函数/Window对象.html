@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /* 
+            Window对象
+                -在浏览器中，浏览器为我们提供了一个Windows对象，可以直接访问
+                -Windows对象代表的是浏览器窗口，通过该对象可以对浏览器窗口进行各种操作
+                    除此之外Windows对象还负责储存js中的内置对象和浏览器的宿主对象
+                -Window对象的属性可以通过Window对象访问，也可以直接访问
+                -函数就可以视作Window对象的方法
+
+        */
+
+        /* 
+            var用来声明变量，作用和let相同，但是var不具有作用域
+                -在全局中使用var声明的变量，都会作为Window对象储存
+                -使用let声明的变量不会作为Window对象的属性储存，而存在另一个地方
+                -var虽然没有块作用域，但是有函数作用域
+                
+            在局部作用域中，既没用var又没用let，会自动变成Window对象的属性，也就是全局变量
+        */
+
+
+
+        /* 
+            变量提升
+                -使用var声明的变量，他会在所有代码执行前被声明（只提升声明，但是赋值仍在后面操作）
+                
+            函数提升
+                -使用函数声明创建的函数，会在其他代码执行前被创建
+                    所以可以在声明前调用函数
+
+            let声明的变量实际也会提升，但是在赋值之前解释器禁止该变量的访问
+            
+            
+        */
+
+     </script>   
+</head>
+<body>
+    
+</body>
+</html>
