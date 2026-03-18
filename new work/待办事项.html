@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>待办事项2.0</title>
+    <style>
+    /* 简单美化一下 */
+    body {
+      padding: 20px;
+    }
+    input {
+      padding: 8px;
+      width: 200px;
+    }
+    button {
+      padding: 8px 12px;
+      margin-left: 5px;
+    }
+    .todo-item {
+      margin: 8px 0;
+      padding: 8px;
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+    
+  <h1>待办清单</h1>
+  <input type="text" id="inputText" placeholder="输入要做的事">
+  <button id="addBtn">添加</button>
+
+  <div id="todoList"></div>
+
+    <script>
+    // 下面开始写 JS 逻辑
+
+    //获取元素
+    let input = document.querySelector("#inputText");
+    let addBtn = document.querySelector("#addBtn");
+    let todoList = document.querySelector("#todoList");
+
+    //监听点击事件
+    addBtn.onclick = function(){
+      //获取输入框的内容
+      let text = input.value;
+      if(text ===''){
+        return;
+      }
+
+      //创建新元素
+    let div = document.createElement("div");
+    div.className = "todo-item";
+    
+
+    //创建删除按钮
+    let delBtn = document.createElement("button")
+    delBtn.innerText = "删除";
+    delBtn.onclick = function(){
+      div.remove()
+    }
+
+    //创建完成按钮
+    let doneBtn = document.createElement("button")
+    doneBtn.innerText = "完成";
+    doneBtn.onclick = function(){
+      div.style.textDecoration = "line-through";
+      div.style.color = 'gray'
+    }
+
+    //修改内容
+    div.innerText = text;
+
+    //添加到页面
+    todoList.appendChild(div);
+    div.appendChild(delBtn);
+    div.appendChild(doneBtn);
+
+    //清空输入框
+    input.value = '';
+    }
+
+  </script>
+</body>
+</html>
