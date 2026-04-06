@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+      /* 整体布局与字体 */
+body {
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* 输入区域 */
+.container{
+  display: flex;
+}
+
+.btn-container{
+  display: flex;
+}
+
+/*设置type值为text的输入框样式*/
+input[type="text"] {
+    width: 70%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/*聚焦*/
+input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+}
+
+/*ID选择器*/
+#addBtn, #clearBtn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 8px;
+    box-shadow: 0 4px 6px rgba(52,152,219,0.3);
+}
+
+#addBtn:hover ,#clearBtn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(52,152,219,0.4);
+}
+
+/* 筛选按钮组 */
+/*伪类选择器:通过对子元素的筛选，找到所需的父元素并且对其css进行修改设置*/
+div:has(.filter-btn) {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 25px 0 15px;
+}
+
+
+.filter-btn {
+    border: none;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.filter-btn:hover {
+    background-color: #d5dbdb;
+}
+
+/* 待办列表容器 */
+#todoList {
+    margin-top: 25px;
+}
+
+/* 每个待办卡片 */
+.todo-item {
+    background: white;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: 0.2s;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.todo-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+/* 待办文字部分 */
+.todo-item span {
+    flex: 1;
+    font-size: 16px;
+    word-break: break-word;
+    padding-right: 10px;
+}
+
+/* 完成状态 */
+.completed span {
+    text-decoration: line-through;
+    color: #95a5a6;
+}
+
+/* 按钮组样式 */
+.todo-item button {
+    border: none;
+    background: none;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+/* 完成按钮 */
+.todo-item button:first-of-type {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+.todo-item button:first-of-type:hover {
+    background-color: #c8e6c9;
+    border-color: #a5d6a7;
+}
+
+/* 删除按钮 */
+.todo-item button:last-of-type {/*只针对该父元素下的第一个button元素，不限定是否为子元素或者满足特别的对应关系*/
+    background-color: #ffebee;
+    color: #c62828;
+}
+.todo-item button:last-of-type:hover {
+    background-color: #ffcdd2;
+    border-color: #ef9a9a;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="inputText" placeholder="请输入待办事项"></input>
+        <div class="btn-container">
+            <button id ='addBtn'>添加</button>
+            <button id = 'clearBtn'>清空</button>
+        </div>
+    </div>
+
+    <div>
+        <button class="filter-btn" data-filter = 'all'>全部</button>
+        <button class="filter-btn" data-filter = 'completed'>已完成</button>
+        <button class="filter-btn" data-filter = 'active'>未完成</button>
+    </div>
+
+    <div id ='todoList'></div>
+
+
+    <script>
+        let todos = []
+        let filter = 'all'
+
+        const savedTodos = localStorage.getItem('todos')
+        if(savedTodos){
+            todos = JSON.parse(savedTodos)
+        }
+        else todos = []
+
+        let input = document.querySelector('#inputText')
+        let addBtn = document.querySelector('#addBtn')
+        let clearBtn = document.querySelector('#clearBtn')
+        let todoList = document.querySelector('#todoList')
+        let filterBtns = document.querySelectorAll('.filter-btn')
+
+        function render(){
+            let filterTodos = []
+
+            if(filter ==='all'){
+                filterTodos = todos
+            }
+            else if(filter ==='completed'){
+                filterTodos = todos.filter(t =>t.completed)
+            }
+            else if(filter ==='active'){
+                filterTodos = todos.filter(t => !t.completed)
+            }
+
+            todoList.innerHTML = ''
+
+            for(let i = 0;i<filterTodos.length;i++)
+            {
+                const todo = filterTodos[i]
+
+                const div = document.createElement('div')
+                div.className = 'todo-item'
+                if(todo.completed){
+                    div.classList.add('completed')
+                }
+
+                const textSpan = document.createElement('span')
+                textSpan.textContent = todo.text
+
+                textSpan.ondblclick = function(e){
+                    e.stopPropagation();
+                    const inputItem = document.createElement('input')
+                    inputItem.type = 'text'
+                    inputItem.value = todo.text
+                    inputItem.style.width = '150px'
+                
+
+                div.replaceChild(inputItem,textSpan)
+                inputItem.focus()
+
+                function doneEditing(){
+                    const newText = inputItem.value.trim()
+                    if(newText !==''){
+                        todo.text = newText
+                        saveTodos()
+                    }
+                    div.replaceChild(textSpan,inputItem)
+                    
+                }
+
+                inputItem.onblur = doneEditing
+
+                inputItem.onkeydown = function(e){
+                    if(e.key==='Enter'){
+                        doneEditing()
+                    }
+                }
+            }
+            div.appendChild(textSpan)
+
+            const doneBtn = document.createElement('button')
+            doneBtn.textContent = '完成'
+            doneBtn.onclick = function(){
+                todo.completed = !todo.completed
+                saveTodos()
+                render()
+            }
+            div.appendChild(doneBtn)
+
+            const delBtn = document.createElement('button')
+            delBtn.textContent = '删除'
+            delBtn.onclick = function(){
+                todos = todos.filter(t => t !== todo)
+                saveTodos()
+                render()
+            }
+            div.appendChild(delBtn)
+
+            todoList.appendChild(div)
+            }
+            
+        }
+
+        function saveTodos(){
+            localStorage.setItem('todos',JSON.stringify(todos))
+        }
+
+        addBtn.onclick = function(){
+            const text = input.value.trim()
+            if(text ==='') return 
+
+            todos.push({
+                text:text,
+                completed:false
+            })
+
+            input.value = ''//区别与普通标签的文本内容存在textContent中，input等表单类输入标签的文字存在了value中
+
+            saveTodos()
+
+            render()
+        }
+
+        clearBtn.onclick = function(){
+            if(confirm('是否要清除所有元素?此操作不可撤销'))
+            {
+                todos = []
+                saveTodos()
+                render()
+            }
+        }
+
+
+            for(let btn of filterBtns){
+                btn.onclick = function(){
+                filter = this.dataset.filter
+                render()
+            }
+        }
+        
+        render()
+
+    </script>
+</body>
+</html>

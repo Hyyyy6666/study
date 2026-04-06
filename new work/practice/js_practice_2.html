@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student = [
+            {name:"Lisi",score:85},
+            {name:"Wangwu",score:88},
+            {name:"Xiaoming",score:95}
+        ]
+        student.push({
+            name : "Zhangsan",
+            score : 90
+        })
+
+        let filter_sutdent = student.filter(
+            t => console.log("The name is: " + t.name + ";" + "The score is: " + t.score)
+        )
+
+        let map_student = student.map(t => t.score + 5)
+        console.log("The mapScore are: " + map_student)
+
+        let find_student = student.find( t => t.name == "Xiaoming")
+        console.log(find_student)
+
+    </script>
+
+</body>
+</html>

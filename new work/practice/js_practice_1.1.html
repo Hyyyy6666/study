@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice_1.1</title>
+</head>
+<body>
+    <script>
+        /*练习1：数组操作（1小时）
+目标：熟练使用 map、filter、find、forEach
+任务：
+有一个数组 nums = [3, 8, 12, 5, 9]，用 filter 挑出所有大于 6 的数。
+用 map 把每个数乘以 2，生成新数组。
+用 find 找出第一个大于 10 的数。
+用 forEach 打印每个数的平方。
+产出：在控制台看到正确结果。*/
+
+        let nums = [3,8,12,5,9]
+
+        let newNums = nums.filter(t => t > 6)
+    
+        let mapNums = nums.map( t => t*2) 
+
+        let findNums = nums.find(t => t > 10)
+
+
+        console.log("The newNums is: " + newNums)
+        console.log("The mapNums is: " + mapNums)
+        console.log("The findNums is: " + findNums)
+
+        nums.forEach (
+            t => console.log("The squater number is: " + t**2)
+        )
+
+    </script>
+</body>
+</html>

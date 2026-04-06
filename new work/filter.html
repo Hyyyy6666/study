@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const arr = [
+    {name: "高数",done:true},
+    {name:"英语",done:false},
+    {name:"体育",done:true},
+    {name:"语文",done:false}
+    ]
+
+    const notDone = arr.filter(function(item,arr){
+        return !item.done
+    })
+    console.log(notDone)
+
+    const done = arr.filter(item => item.done)
+    console.log(done)
+    </script>
+</body>
+</html>

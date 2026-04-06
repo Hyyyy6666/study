@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>待办清单（数据驱动）</title>
+    <style>
+        .todo-item { margin: 5px 0; }
+        .completed { text-decoration: line-through; color: gray; }
+        .filter-btn { margin-right: 5px; }
+    </style>
+</head>
+<body>
+    <h1>待办清单</h1>
+    <input type="text" id="inputText" placeholder="输入要做的事">
+    <button id="addBtn">添加</button>
+
+    <div>
+        <button class="filter-btn" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="active">未完成</button>
+        <button class="filter-btn" data-filter="completed">已完成</button>
+    </div>
+
+    <div id="todoList"></div>
+
+    <script>
+        // ---------- 数据 ----------
+        let todos = [];  // 后续加入这个数组的每个元素：{ text: 'xxx', completed: false }
+        //定义一个变量filter来标记当前的状态
+        let filter = 'all';  // 当前筛选状态：'all', 'active', 'completed'
+
+
+        // ---------- 获取元素 ----------
+        const input = document.querySelector('#inputText');//id名获取元素
+        const addBtn = document.querySelector('#addBtn');
+        const todoList = document.querySelector('#todoList');
+        const filterBtns = document.querySelectorAll('.filter-btn');//类选择器获取三个按钮
+
+        // ---------- 渲染函数 ----------
+        function render() {
+            // 1. 根据 filter 筛选数据
+            let filteredTodos = [];//创建一个新数组，储存不同类型的待办事项数组
+            if (filter === 'all') {
+                filteredTodos = todos;  // 全部
+            } else if (filter === 'active') {
+                filteredTodos = todos.filter(t => !t.completed);//未完成
+                // 将filter函数筛选出来的completed为false的新数组赋值给了filterTodos数组
+            } else if (filter === 'completed') {
+                filteredTodos = todos.filter(t => t.completed);   // 已完成
+                //将filter函数筛选出来的completed为true的新数组赋值给了filterTodos数组
+            }
+
+            // 2. 清空列表
+            //上次一渲染的内容和这一次不一样，需要先把上一次的清空
+            todoList.innerHTML = '';
+
+            // 3. 遍历 filteredTodos，生成 DOM
+            for (let i = 0; i < filteredTodos.length; i++) {
+                const todo = filteredTodos[i];
+
+                // 创建外层 div
+                const div = document.createElement('div');
+                div.className = 'todo-item';
+                if (todo.completed) {
+                    div.classList.add('completed');  // 添加完成样式
+                    //追加类名，在原有的总类todo-item的基础上，增加completed
+                    //即：从class=todo-item  => class = todo-item completed
+                }
+
+                // 显示文字（注意：需要用文本节点，避免XSS）
+                const textSpan = document.createElement('span');//创建一个span盒子装文字内容
+                textSpan.textContent = todo.text;//textContent会把todo.text当做纯文本处理，不会把它当做html标签去解析
+                div.appendChild(textSpan);
+
+                // 完成按钮
+                const doneBtn = document.createElement('button');
+                doneBtn.textContent = '√';
+                doneBtn.onclick = function() {
+                    // 切换 completed 状态
+                    todo.completed = !todo.completed;//对属性值false取反，即可得到true
+                    render();  // 重新渲染，把该待办事项划分进已完成的数组里面
+                };
+                div.appendChild(doneBtn);
+
+                // 删除按钮
+                const delBtn = document.createElement('button');
+                delBtn.textContent = '删除';
+                delBtn.onclick = function() {
+                    // 从 todos 中删除该项（filter 方法）
+                    todos = todos.filter(t => t !== todo);//拿到除了本身这项外的其他所有项，从而得到新的数组
+                    render();
+                };
+                div.appendChild(delBtn);
+
+                todoList.appendChild(div);
+            }
+        }
+
+        // ---------- 添加事项 ----------
+        addBtn.onclick = function() {
+            const text = input.value.trim();
+            if (text === '') return;
+
+            // 推入数组
+            todos.push({
+                text: text,
+                completed: false
+            });
+
+            // 清空输入框
+            input.value = '';
+
+            // 重新渲染
+            render();
+        };
+
+        // ---------- 筛选按钮点击事件 ----------
+        for (let btn of filterBtns) {
+            btn.onclick = function() {
+                filter = this.dataset.filter;  // 获取 data-filter 属性值
+                render();  // 重新渲染
+            };
+        }
+
+        // 初始化渲染（空列表）
+        render();
+    </script>
+</body>
+</html>
