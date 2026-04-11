@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>轮播图方案2</title>
+    <style>
+        .carousel{
+            width:400px;
+            overflow: hidden;/*隐藏超出部分*/
+            position: relative;
+        }
+
+        .slides{
+            display: flex;
+            transition:transform 0.3s ease;
+        }
+
+        .slides img{
+            width:100%;
+            flex-shrink: 0;
+        }
+
+        .prev,.next{
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .prev{left:0;}
+
+        .next{right: 0;}
+    </style>
+</head>
+<body>
+    <!--通过移动一个“长条容器”来改变现实区域,核心掌握:移动距离=-当前索引×单张图片宽度 --> 
+
+    <div class="carousel">
+        <div class="slides">
+            <img src="./图片1.jpg" style="width: 100px;height: 100px;" alt="图片1">
+            <img src="./图片2.jpg" style="width: 100px;height: 100px;" alt="图片2">
+            <img src="./图片3.jpg" style="width: 100px;height: 100px;" alt="图片3">
+        </div>
+        <button class="prev"></button>
+        <button class="next"></button>
+    </div>
+
+    <script>
+        //获取元素
+        const slidesContainer = document.querySelector('.slides')
+        const slides = document.querySelectorAll('.slides img')
+        const nextBtn = document.querySelector('.next')
+        const prevBtn = document.querySelector('.prev')
+        let currentIndex = 0
+        const slidesWidth = slides[0].clientWidth//获取单张图片长度
+        const carousel = document.querySelector('.carousel')
+
+        //实现该方案的核心函数，通过计算图片长度来决定容器移动距离，达到显示想要图片的效果
+        function updateCarousel(){
+            const offset = -currentIndex*slidesWidth
+            slidesContainer.style.transform = `translateX(${offset}px)`
+        }
+
+        let internal = setInterval(nextSlides,3000)
+        carousel.addEventListener('mouseenter',()=>{
+            clearInterval(internal)
+        })
+        carousel.addEventListener('mouseleave',()=>{
+            internal = setInterval(nextSlides,3000)
+        })
+        
+
+        function nextSlides(){
+           currentIndex = (currentIndex + 1)%slides.length
+        updateCarousel()
+        }
+
+        function prevSlides(){
+           currentIndex = (currentIndex - 1 + slides.length)%slides.length
+            updateCarousel()
+        }
+
+        nextBtn.addEventListener('click',nextSlides)
+        prevBtn.addEventListener('click',prevSlides)
+
+        updateCarousel()
+
+    </script>
+</body>
+</html>

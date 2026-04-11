@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏替换</title>
+    <style>
+        nav {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.prevNav, .newNav {
+    transition: all 0.3s ease;
+}
+
+.prev, .logo {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+/* 新导航栏里的搜索框区域 */
+.newNav-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.newNav-item input {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+}
+
+.newNav-item button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.newNav-item button:hover {
+    background-color: #c0392b;
+}
+    </style>
+</head>
+<body>
+    <nav class="prevNav">
+        <div>这是旧的导航栏</div>
+        <div class="logo">🔎</div>
+    </nav>
+
+    <nav class="newNav" style="display: none;">
+        <input type="text" id="search" placeholder="请输入你想搜索的商品">
+        <div >这是新的导航栏 </div>
+        <button id="cancel">取消×</button>
+    </nav>
+
+    <script>
+        const newNav = document.querySelector('.newNav')
+        const prevNav = document.querySelector('.prevNav')
+        const logo = document.querySelector('.logo')
+        const cancelBtn = document.querySelector('#cancel')
+        const input = document.querySelector('#search')
+
+
+        logo.addEventListener('click',() => {
+            newNav.style.display = 'block'
+            prevNav.style.display = 'none' 
+            input.focus()           
+        })
+
+        cancelBtn.addEventListener('click',()=>{
+            newNav.style.display='none'
+            prevNav.style.display = 'block'
+        })
+
+
+    </script>
+</body>
+</html>

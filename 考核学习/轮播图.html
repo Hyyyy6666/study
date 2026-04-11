@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+        }
+
+        .carousel {
+            position: relative;
+            width: 500px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+        }
+
+        .slides {
+            position: relative;
+            min-height: 300px;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 100%;
+            display: none;/* 默认隐藏 */
+            object-fit: cover;
+        }
+
+        .slides img.active {
+            display: block;/* 只有 active 显示*/
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            background-color: #fff;
+            border: none;
+            font-size: 24px;
+            padding: 12px 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--方案一:通过display布局的none/block切换图片,便于理解轮播图的基本形成原理-->
+    <div class="carousel">
+        <div class="slides">
+            <img src="./图片1.jpg" alt="图片1">
+            <img src="./图片2.jpg"  alt="图片2">
+            <img src="./图片3.jpg" alt="图片3">
+        </div>
+        <button class="next"></button>
+        <button class="prev"></button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slides img')
+        const nextBtn = document.querySelector('.next')
+        const prevBtn = document.querySelector('.prev')
+        let currentIndex = 0
+
+
+        function showSlide(index) {
+            console.log('显示当前第', index, "张图")
+            slides.forEach(img => img.classList.remove('active'));
+
+            slides[index].classList.add('active')
+        }
+
+        function nextSlide() {
+            console.log("修改当前的currentIndex", currentIndex)
+            currentIndex = (currentIndex + 1) % slides.length
+            console.log("修改后的currentIndex", currentIndex)
+            showSlide(currentIndex)
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length
+            showSlide(currentIndex)
+        }
+
+        nextBtn.addEventListener('click', nextSlide)
+        prevBtn.addEventListener('click', prevSlide)
+
+        showSlide(currentIndex)//初始化：显示第一张
+    </script>
+</body>
+
+</html>

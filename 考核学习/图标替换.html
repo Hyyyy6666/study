@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图标替换</title>
+    <style>
+        .prevNav {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.prevNav {
+    transition: all 0.3s ease;
+}
+
+.prev, .logo {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+/* 新导航栏里的搜索框区域 */
+.inputItem {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+}
+    </style>
+</head>
+<body>
+    <nav class="prevNav">
+        <div class="prev">这是旧的导航栏</div>
+        <div class="logo">这是小图标(点击)</div>
+    </nav>
+    <nav class="newNav">
+    </nav>
+
+    <script>
+        const logo = document.querySelector('.logo')
+        const prevNav = document.querySelector('.prevNav')
+        const newNav = document.querySelector('.newNav')
+
+        logo.addEventListener('click',()=>{
+            
+            let inputItem = document.createElement('input')
+
+            prevNav.replaceChild(inputItem,logo)
+
+            inputItem.addEventListener('keypress',(e)=>{
+                if(e.key === 'Enter'){
+                    prevNav.replaceChild(logo,inputItem)
+                }
+            })
+        })
+
+        
+
+    </script>
+</body>
+</html>

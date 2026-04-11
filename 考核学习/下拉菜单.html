@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            padding: 20px;
+        }
+
+        .nav-menu {
+            background-color: #333;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+            list-style: none;
+        }
+
+        .nav-item > a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-item > a:hover {
+            background-color: #555;
+        }
+
+        .dropdown{
+            display: none;/*默认隐藏*/
+            position:absolute;
+            top:0;
+            left: 100%;/*只需设置布局即可让下拉菜单出现在左侧*/
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 150px;
+        }
+
+        .dropdown.show{
+            display: block;
+        }
+
+        .nav-item{
+            position:relative;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+    <ul class="nav-menu">
+        <li class="nav-item">
+            <a href="#">手机</a>
+            <ul class="dropdown">
+                <li><a href="#">华为 Mate 60</a></li>
+                <li><a href="#">华为 Pura 70</a></li>
+                <li><a href="#">华为 Nova 12</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#">平板</a>
+            <ul class="dropdown">
+                <li><a href="#">MatePad Pro</a></li>
+                <li><a href="#">MatePad Air</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#">笔记本</a>
+            <ul class="dropdown">
+                <li><a href="#">MateBook X Pro</a></li>
+                <li><a href="#">MateBook 14</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+    <Script>
+        //获取元素
+        const nvaitems = document.querySelectorAll('.nav-item')
+
+        nvaitems.forEach(item =>{
+            const dropdown = item.querySelector('.dropdown')
+
+            item.addEventListener('mouseenter',()=>{
+                dropdown.classList.add('show')
+            })
+
+            item.addEventListener('mouseleave',()=>{
+                dropdown.classList.remove('show')
+            })
+        })
+
+        
+    </Script>
+</body>
+</html>
