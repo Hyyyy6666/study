@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小兔鲜儿 双导航平滑切换</title>
+  <style>
+    /* 全局重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Microsoft Yahei", sans-serif;
+}
+
+/* ============== 第一个顶部导航 ============== */
+.top-nav {
+  width: 100%;
+}
+/* 顶部黑条 */
+.nav-top-bar {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: right;
+  padding-right: 20px;
+}
+.nav-top-bar a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+}
+.nav-top-bar span {
+  color: #666;
+}
+
+/* 主导航栏 */
+.nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: #fff;
+}
+.logo img {
+  height: 80px; /* 按你的logo尺寸调整 */
+}
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  margin: 0 20px;
+}
+.nav-search-cart {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #73bfa0; /* 你的青绿色背景 */
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* ============== 第二个吸顶导航（核心） ============== */
+.sticky-nav {
+  /* 固定定位，默认隐藏在视口上方 */
+  position: fixed;
+  top: -120px; /* 高度要和导航栏一致，这里设为-120px，完全隐藏 */
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* 加阴影，区分页面内容 */
+  /* 平滑过渡动画：0.3秒缓动 */
+  transition: top 0.3s ease-in-out;
+  z-index: 999; /* 确保在最上层 */
+}
+/* 激活类：滚动后添加，让导航滑入 */
+.sticky-nav.active {
+  top: 0; /* 滑到顶部 */
+}
+.sticky-nav .nav-extra {
+  background: #73bfa0;
+  padding: 15px 20px;
+  display: flex;
+  gap: 30px;
+}
+.sticky-nav .nav-extra a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* ============== 页面主体 ============== */
+.content {
+  /* 给页面加padding-top，避免内容被吸顶导航遮挡 */
+  padding-top: 20px;
+}
+  </style>
+</head>
+<body>
+  <!-- 第一个导航：页面顶部默认显示 -->
+  <header class="top-nav">
+    <div class="nav-top-bar">
+      <a href="#">请先登录</a>
+      <span>|</span>
+      <a href="#">免费注册</a>
+      <span>|</span>
+      <a href="#">我的订单</a>
+      <span>|</span>
+      <a href="#">会员中心</a>
+      <span>|</span>
+      <a href="#">帮助中心</a>
+      <span>|</span>
+      <a href="#">关于我们</a>
+      <span>|</span>
+      <a href="#">手机版</a>
+    </div>
+    <div class="nav-main">
+      <div class="logo">
+        <img src="小兔鲜儿logo.png" alt="小兔鲜儿">
+      </div>
+      <nav class="nav-menu">
+        <a href="#">首页</a>
+        <a href="#">居家</a>
+        <a href="#">美食</a>
+        <a href="#">服饰</a>
+        <a href="#">母婴</a>
+        <a href="#">个护</a>
+        <a href="#">严选</a>
+        <a href="#">数码</a>
+        <a href="#">运动</a>
+        <a href="#">杂项</a>
+      </nav>
+      <div class="nav-search-cart">
+        <div class="search-box">搜一搜</div>
+        <div class="cart-icon">🛒</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 第二个导航：滚动后平滑出现并吸顶 -->
+  <header class="sticky-nav">
+    <div class="logo">
+      <img src="小兔鲜儿logo.png" alt="小兔鲜儿">
+    </div>
+    <nav class="nav-menu">
+      <a href="#">首页</a>
+      <a href="#">居家</a>
+      <a href="#">美食</a>
+      <a href="#">服饰</a>
+      <a href="#">母婴</a>
+      <a href="#">个护</a>
+      <a href="#">严选</a>
+      <a href="#">数码</a>
+      <a href="#">运动</a>
+      <a href="#">杂项</a>
+    </nav>
+    <div class="nav-extra">
+      <a href="#">品牌</a>
+      <a href="#">专题</a>
+    </div>
+  </header>
+
+  <!-- 页面主体内容（用来测试滚动效果） -->
+  <main class="content">
+    <div style="height: 1500px; padding: 20px;">
+      <h1>页面主体内容，向下滚动测试导航效果</h1>
+      <p>滚动超过100px后，第二个导航会平滑滑入并固定在顶部</p>
+      <p>滚动回顶部，第二个导航会平滑滑出</p>
+    </div>
+  </main>
+
+  <script>
+    // 获取第二个导航元素
+const stickyNav = document.querySelector('.sticky-nav');
+// 设置滚动阈值：滚动超过100px时显示导航（可根据你的需求调整）
+const scrollThreshold = 100;
+
+// 监听页面滚动事件
+window.addEventListener('scroll', function() {
+  // 获取当前滚动距离
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // 判断：滚动距离超过阈值，添加激活类，触发滑入动画
+  if (scrollTop > scrollThreshold) {
+    stickyNav.classList.add('active');
+  } else {
+    // 滚动回阈值内，移除激活类，触发滑出动画
+    stickyNav.classList.remove('active');
+  }
+});
+  </script>
+</body>
+</html>
