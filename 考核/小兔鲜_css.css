@@ -269,7 +269,7 @@
  }
 
  .home-banner {
-    width: 400%;
+    width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
@@ -277,40 +277,62 @@
 
  .carousel {
     width: 100%;
-    height: 100%;
+    position: relative;
  }
 
  .carousel-body {
     display: flex;
-    width: 100%;
-    height: 100%;
+    transition: transform 0.3s ease;
  }
 
  .carousel-item {
-    display: flex;
+    flex-shrink: 0;
     width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
  }
 
  .carousel-item img {
     width: 100%;
-    height: 100%;
+    display: block;
     flex-shrink: 0;
  }
 
- .prev,
- .next {
+ .carousel-btn-pre,
+ .carousel-btn-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 99999;
+ }
+
+ .carsouel-btn-prev {
+    left: 500px;
+ }
+
+ .carsouel-btn-next {
+    right: 10px;
+ }
+
+ .carousel-indicator {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+ }
+
+ .carousel-indicator span {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
     cursor: pointer;
  }
 
- .prev {
-    left: 0;
- }
-
- .next {
-    right: 0;
+ .carousel-indicator span.active {
+    background: white;
  }

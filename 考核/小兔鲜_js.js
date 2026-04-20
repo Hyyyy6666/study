@@ -39,40 +39,57 @@ toTop.addEventListener('click', () => {
 })
 
 /*轮播图*/
+const carousel = document.querySelector(".carousel")
+const carouselContainer = document.querySelector(".carousel-body")
+const carousels = document.querySelectorAll(".carousel-item")
+let currentIndex = 0
+const total = carousels.length
+const nextBtn = document.querySelector('.carousel-btn-next')
+const prevBtn = document.querySelector('.carousel-btn-prev')
+const indicators = document.querySelectorAll('.carousel-indicator span')
 
-        const carsouelContainer = document.querySelector('.carsouel-body')
-        const carsouels = document.querySelectorAll('.carsouel img')
-        const nextBtn = document.querySelector('.carousel-btn-next')
-        const prevBtn = document.querySelector('.carousel-btn-pre')
-        let currentIndex = 0
 
-        const carsouelWide = carsouels[0].clientWidth//获取单张图片长度
-        const carsouel = document.querySelector(".carsouel")
+function updateCarousel() {
+    const offset = -currentIndex * 100
+    carouselContainer.style.transform = `translateX(${offset}px)`
 
-        function  updateCarsouel(){
-            const offset = -currentIndex*carsouelWide
-            carsouelWide.style.transform = `translateX(${offset}px)`
+    indicators.forEach((dot, i) => {
+        if (i === currentIndex) {
+            dot.classList.add('active')
         }
-
-        let internal = setInterval(nextcarsouel,3000)
-        carsouel.addEventListener('mouseenter',()=>{
-            clearInterval(internal)
-        })
-        carsouel.addEventListener('mouseleave',()=>{
-            internal = setInterval(nextBtn,3000)
-        })
-
-        function nextBtn(){
-           currentIndex = (currentIndex + 1)%slides.length
-        updateCarousel()
+        else {
+            dot.classList.remove('active')
         }
+    })
 
-        function prevBtn(){
-           currentIndex = (currentIndex - 1 + carsouels.length)%carsouels.length
-            updateCarousel()
-        }
+}
 
-        nextBtn.addEventListener('click',nextBtn)
-        prevBtn.addEventListener('click',prevBtn)
+let interval = setInterval(nextCarousels, 3000)
+carousel.addEventListener('mouseenter', () => {
+    clearInterval(interval)
+})
+carousel.addEventListener('mouseleave', () => {
+    interval = setInterval(nextCarousels, 3000)
+})
 
-        updateCarousel()
+function nextCarousels() {
+    currentIndex = (currentIndex + 1) % total
+    updateCarousel()
+}
+
+function prevCarousels() {
+    currentIndex = (currentIndex - 1 + total) % total
+    updateCarousel()
+}
+
+nextBtn.addEventListener('click', nextCarousels)
+prevBtn.addEventListener('click', prevCarousels)
+
+indicators.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        currentIndex = i
+        updateCarsouel()
+    })
+})
+
+updateCarousel()
