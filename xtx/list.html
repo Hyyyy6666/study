@@ -38,7 +38,7 @@
         </div>
     </div>
     <!--1.2 header部分制作-->
-    <header class="header w">
+    <header class="header w default-header">
         <div class="logo">
             <h1>
                 <a href="list.html" title="小兔鲜儿">小兔鲜儿 </a>
@@ -66,6 +66,36 @@
             <i class="iconfont icon-cart-full"></i>
         </div>
     </header>
+
+    <header class="header w fixed-header">
+        <div class="logo">
+            <h1>
+                <a href="list.html" title="小兔鲜儿" id="fixed-header-logo">小兔鲜儿 </a>
+            </h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">生鲜</a></li>
+                <li><a href="#">美食</a></li>
+                <li><a href="#">餐厨</a></li>
+                <li><a href="#">电器</a></li>
+                <li><a href="#">居家</a></li>
+                <li><a href="#">洗护</a></li>
+                <li><a href="#">孕婴</a></li>
+                <li><a href="#">服装</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <i class="iconfont icon-search"></i>
+            <input type="text" placeholder="搜一搜">
+        </div>
+        <div class="car">
+            <span>2</span>
+            <i class="iconfont icon-cart-full"></i>
+        </div>
+    </header>
+
 
     <!--首页主体部分-->
     <!--entry模块制作-->
@@ -159,18 +189,26 @@
             </div>
             <div class="banner">
                 <!--图片切换-->
-                <ul>
-                    <li>
+                <ul class="carousel">
+                    <li class="slides">
                         <a href="#">
                             <img src="./uploads/banner1.png" alt="">
+                            <img src="./uploads/kitchen_left.png" alt="">
+                            <img src="./uploads/colthes_left.png" alt="">
+                            <img src="./uploads/fresh_left.png" alt="">
+                            <img src="./uploads/home_left.png" alt="">
                         </a>
                     </li>
                 </ul>
+                <div class="prevBtn"><i class="iconfont icon-arrow-left-bold"></i></div>
+                <div class="nextBtn"><i class="iconfont icon-arrow-right-bold"></i></div>
                 <!--小圆点-->
                 <ul class="circle">
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li class="dot active"></li>
+                    <li class="dot"></li>
+                    <li class="dot"></li>
+                    <li class="dot"></li>
+                    <li class="dot"></li>
                 </ul>
             </div>
         </div>
@@ -905,7 +943,7 @@
         </div>
     </footer>
 
-
+<script src="./js.js"></script>
 </body>
 
 </html>
