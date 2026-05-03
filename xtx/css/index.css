@@ -16,7 +16,7 @@
     left: 0;
     width: 250px;
     height: 500px;
-    background: rgba(0, 0, 0, .42);
+    background: rgba(0, 0, 0, .8);
     z-index: 9999;
 }
 
@@ -24,6 +24,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 48px;
+    padding: 0 16px 0 20px;
     height: 50px;
     padding: 0 12px 0 29px;
     color: #fff;
@@ -41,6 +43,104 @@
 .category ul li a:first-child {
     font-size: 16px;
     margin-right: 10px;
+}
+
+.category .dropdown-left {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: 1000px;
+    height: 500px;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999999;
+}
+
+.category .dropdown-left.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.category .dropdown-header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding:30px;
+    gap:10px;
+}
+
+.category .dropdown-header h3{
+    font-size: 20px;
+    color: #333;
+}
+
+.category .dropdown-header p{
+    font-size: 16px;
+    color: #666666;
+}
+
+.category .dropdown-goods{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    height: 400px;
+}
+
+.category .dropdown-goods .goods-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    width: 300px;
+    height: 100px;
+    border:0.5px solid #a1a1a1;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.goods-card .goods-content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.goods-card .goods-content .goods-title {
+    font-size: 18px;
+    /*单行文字溢出显示省略号*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color:#666666;
+}
+
+.goods-card .goods-content p{
+    font-size: 14px;
+    color:#a1a1a1;
+}
+
+.goods-card .goods-content .price {
+    font-size: 18px;
+    color: #aa2113;
+}
+
+.goods-card .goods-content .price small {
+    font-size: 14px;
+}
+
+.goods-card img {
+    width: 35%;
+    height: 80%;
+    background-color: pink;
 }
 
 .banner {
@@ -82,15 +182,15 @@
 .banner .circle .dot {
     width: 14px;
     height: 14px;
-    background-color:rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     margin: 0 8px;
     cursor: pointer;
 }
 
-.banner .circle .dot .active {
-    transform: scale(1.2);
-    
+.banner .circle .dot.active {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
+    background-color: #fff;
 }
 
 /*阴影控制扩散距离*/
@@ -111,7 +211,7 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background-color:rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .prevBtn {
@@ -123,7 +223,7 @@
 }
 
 .prevBtn i,
-.nextBtn i{
+.nextBtn i {
     color: #fff;
 }
 
@@ -148,6 +248,15 @@
 .box-hd a {
     font-size: 16px;
     color: #a1a1a1;
+}
+
+.box-bd-card {
+    transition: all 0.3s ease;
+}
+
+.box-bd-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .box-bd ul {
@@ -263,7 +372,6 @@
 
 .body-r .card-cover .card h4 {
     font-size: 22px;
-    box-shadow: 0 0 rgba(255, 255, 255, 0.5);
 }
 
 .body-r .card-cover .card p {
@@ -340,6 +448,12 @@
     width: 242px;
     height: 305px;
     padding: 10px 21px 0;
+    border:1px solid transparent;
+    position:relative;
+}
+
+.body .body-r li:hover{
+    border:1px solid #00be9a;
 }
 
 .body .body-r li a {
@@ -347,6 +461,7 @@
     line-height: 19px;
     height: 100%;
     width: 100%;
+    position:relative;
 }
 
 .body .body-r li img {
@@ -369,8 +484,48 @@
     font-size: 16px;
 }
 
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: -21px;
+    width: 241px;
+    height: 30%;
+    background: #5eb69c;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 9999999;
+}
+
+.body .body-r li:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.new{
+    width: 100vw;
+    padding:5px 0;
+    background-color: #f5f5f5;
+}
 .news {
     margin-bottom: 60px;
+    background-color: #fff;
+}
+
+.news-card {
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .news ul {
@@ -402,3 +557,4 @@
 .news .con .like {
     margin-right: 20px;
 }
+ 

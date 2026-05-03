@@ -104,11 +104,17 @@
     transform: translateY(0);
 }
 
+.default-header {
+    width: 100%;
+    padding: 0 80px;
+}
+
 .nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
+    list-style: none;
 }
 
 .nav li a {
@@ -120,6 +126,41 @@
 .nav li a:hover {
     color: #5eb69c;
     border-bottom: 2px solid;
+}
+
+.nav li a {
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 90px;
+    width: 1240px;
+    height: 100px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999999;
+}
+
+.dropdown.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav .dropdown-item a:hover {
+    color: #5eb69c;
+    border-bottom: none;
 }
 
 .search {
@@ -193,15 +234,153 @@
 
 /*2.网页底部*/
 .footer {
-    height: 580px;
-    background-color: #f5f5f5;
+    height: 191px;
+    background-color: #fff;
+}
+
+/*2.2 服务模块*/
+
+.service {
+    margin-top: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+}
+
+.service-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.service-left dl {
+    flex: 1;
+    text-align: center;
+    min-width: 180px;
+}
+
+.service-left dt {
+    font-size: 16px;
+    font-weight: 600;
+    color: #999;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    position: relative;
+    display: inline-block;
+}
+
+.service-left dd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-left .dd-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.service-left .dd-item:hover {
+    color: #5eb69c;
+}
+
+.service-left .dd-item i {
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.service-left .dd-item:hover i {
+    color: #5eb69c;
+}
+
+.service-left .dd-item span {
+    font-size: 14px;
+    color: #666;
+}
+
+.service-left .qrcode img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+.service-left .download-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.service-left .download-info span {
+    font-size: 13px;
+}
+
+.service-left .download-info a {
+    display: inline-block;
+    background-color: #5eb69c;
+    color: #fff;
+    padding: 5px 16px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.service-left .hotline {
+    flex-direction: column;
+    gap: 5px;
+}
+
+.service-left .hotline .phone {
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+}
+
+.service-left .hotline .time {
+    font-size: 12px;
+    color: #999;
+}
+
+.service-left .service-line {
+    width: 1px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.footer .w:first-child {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.footer-button {
+    width: 100%;
+    height: 400px;
+    background-color: #333;
+}  
+
+.footer-button .w {
+    width: 1240px;
+    margin: 0 auto;
 }
 
 /*2.1 slogan模块*/
 
 .slogan {
-    height: 178px;
-    border-bottom: 1px solid #e8e8e8;
+    height: 200px;
+    border-bottom: 1px solid #ccc;
+    background-color: #333;
+    color: #5eb69c;
 }
 
 .slogan ul {
@@ -214,14 +393,12 @@
 .slogan ul li {
     display: flex;
     align-items: center;
-
 }
 
 .slogan ul li h5 {
     width: 58px;
     height: 58px;
     background: url(../images/sprite.png);
-
 }
 
 .slogan ul li p {
@@ -241,57 +418,12 @@
     background-position: 0 -174px;
 }
 
-/*2.2 服务模块*/
-
-.service {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 60px;
-}
-
-.service-left {
-    display: flex;
-    gap: 84px;
-}
-
-.service-left dt {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.service-left dd {
-    margin-bottom: 18px;
-}
-
-.service-left dd a {
-    color: #969696;
-}
-
-.service-left dd a i {
-    color: #5eb69c;
-}
-
-.service-right ul {
-    display: flex;
-    align-items: center;
-}
-
-.service-right ul li {
-    margin-left: 55px;
-    color: #969696;
-}
-
-.service-right ul li p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .coyeright {
     text-align: center;
-    margin-top: 100px;
     line-height: 30px;
+    background-color: #333;
     color: #A1A1A1;
+    padding-top: 50px;
 }
 
 .coyeright a {

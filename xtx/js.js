@@ -79,3 +79,33 @@ prevBtn.addEventListener('click', prevSlides)
 
 updateCarousel()
 
+/*下拉列表*/
+const navitems = document.querySelectorAll('.navitem')
+
+navitems.forEach(item =>{
+    const dropdown = item.querySelector('.dropdown')
+    if(!dropdown) return // 防止没有dropdown的元素报错
+
+    item.addEventListener('mouseenter',()=>{
+        dropdown.classList.add('show')
+    })
+
+    item.addEventListener('mouseleave',()=>{
+        dropdown.classList.remove('show')
+    })
+})
+
+const categoryitems = document.querySelectorAll('.categoryitem')
+
+categoryitems.forEach(item =>{
+    const dropdownLeft = item.querySelector('.dropdown-left')
+    if(!dropdownLeft) return // 防止没有dropdown的元素报错
+
+    item.addEventListener('mouseenter',()=>{
+        dropdownLeft.classList.add('show')
+    })
+
+    item.addEventListener('mouseleave',()=>{
+        dropdownLeft.classList.remove('show')
+    })
+})
