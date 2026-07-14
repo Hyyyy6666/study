@@ -1,0 +1,618 @@
+.entry {
+    height: 500px;
+    /* background-color: pink; */
+    background: url(../update/banner_4.jpg);
+    background-size: cover;
+    background-position: -490px;
+    background-repeat: no-repeat;
+}
+
+.entry .w {
+    height: 100%;
+    position: relative;
+}
+
+.category {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    width: 200px;
+    height: 480px;
+    background: rgb(255, 255, 255, .5);
+    z-index: 99;
+}
+
+.category ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    height: 60px;
+    font-size: 16px;
+}
+
+.category ul li .dropdown{
+    position: absolute;
+    top: 0;
+    left: 205px;
+    display: flex;
+    flex-direction: column;
+    height: 480px;
+    width: 750px;
+    background-color: #f7f7f7;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.category ul li .dropdown.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+.category ul li .dropdown .dropdown-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:20px 50px 0 30px;
+    height: 30px;
+    /* background-color: #5467f5; */
+}
+
+.category ul li .dropdown .dropdown-title h3{
+    font-size: 15px;
+}
+
+.category ul li .dropdown .dropdown-title p a{
+    color: #999;
+    font-size: 13px;
+}
+
+.category ul li .dropdown .dropdown-title p a:hover{
+    color: red;
+}
+
+.category ul li .dropdown .dropdown-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    height: auto;
+    gap: 10px;
+    width: 680px;
+    margin: 10px;
+    padding: 20px 0 20px 5px;
+    border-bottom: .5px solid #999;
+}
+
+.category ul li .dropdown .dropdown-list li{
+    width: 160px;
+    height: 50px;
+    border-radius: 5px;
+    padding: 0 8px;
+    background-color: #f0f0f0;
+}
+
+.category ul li .dropdown .dropdown-list li a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+.category ul li .dropdown .dropdown-list li p{
+    display: flex;
+    align-items: center;
+    width: 65%;
+    font-size: 15px;
+    color: #575757;
+}
+
+.category ul li .dropdown .dropdown-list li img{
+    height: 50px;
+    width: 30%;
+}
+
+.category ul li .dropdown .dropdown-bottom{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 10px;
+    width: 700px;
+    margin: 30px;
+    padding: 20px 0 20px 10px;
+    background-color: #f7f7f7;
+}
+
+.category ul li .dropdown .dropdown-bottom li{
+    width: 200px;
+    height: 50px;
+    padding: 0;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+.category ul li .dropdown .dropdown-bottom li a{
+   position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: brown; */
+}
+
+.category ul li .dropdown .dropdown-bottom li a p{
+    display: flex;
+    align-items: center;
+    width: 75%;
+    height: 100%;
+    font-size: 13px;
+    /* background-color: pink; */
+}
+
+.category ul li .dropdown .dropdown-bottom li a img{
+    height: 100%;
+    width: 20%;
+}
+
+.category ul li .dropdown .dropdown-bottom li a span{
+    position: absolute;
+    top: -3px;
+    left: 20px;
+    height: 15px;
+    width: 100px;
+}
+
+.entry .w .banner{
+    height: 500px;
+    position: relative;
+}
+
+.entry .w .banner .line{
+    position: absolute;
+    display: flex;
+    bottom: 10px;
+    right: 500px;
+}
+
+.entry .w .banner .line li{
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 3px;
+    width: 45px;
+    margin: 0 4px;
+}
+
+.entry .w .banner .line li:hover{
+    box-shadow: 0 -3px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+.entry .w .banner .line .active{
+    background-color: #fff;
+    box-shadow: 0 -3px 0 0 #fff;
+}
+
+.entry .w .banner .line .active:hover{
+    box-shadow: 0 -3px 0 0 #fff;
+}
+
+/* floor-list部分 */
+.floor-list {
+    height: 250px;
+    background-color: #f7f7f7;
+}
+
+.floor-list .w {
+    height: 250px;
+}
+
+.floor-list .w ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.floor-list .w ul li {
+    height: 100%;
+    width: 400px;
+    margin: 30px 0;
+    transition: all 0.3s ease;
+}
+
+.floor-list .w ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.floor-list .w ul li img {
+    height: 170px;
+    width: 400px;
+}
+
+/* CountTime部分 */
+.CountTime {
+    height: 430px;
+    background-color: #f7f7f7;
+}
+
+.CountTime .w {
+    height: 430px;
+}
+
+.CountTime .w .CountTime-top {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    background-color: #f7f7f7;
+}
+
+.CountTime .w .CountTime-top .CountTime-top-left {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 50px;
+    gap: 20px;
+}
+
+.CountTime .w .CountTime-top .CountTime-top-left img {
+    width: 100px;
+    height: 50px;
+}
+
+.CountTime .w .CountTime-top .CountTime-top-left .Count {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 50px;
+}
+
+.CountTime .w .CountTime-top .CountTime-top-left .Count span {
+    display: block;
+    height: 30px;
+    width: 35px;
+    text-align: center;
+    line-height: 30px;
+    /* !!!！！总是忘记：和height相等，文字垂直居中 */
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+}
+
+.CountTime .w .CountTime-top .CountTime-top-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+    height: 50px;
+}
+
+.CountTime .w .CountTime-top .CountTime-top-right:hover {
+    color: red;
+}
+
+.CountTime .w .CountTime-bottom {
+    width: 100%;
+    height: 380px;
+}
+
+.CountTime .w .CountTime-bottom .goods-box {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.CountTime .w .CountTime-bottom .goods-box button {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    z-index: 99999;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .left-btn {
+    left: -40px;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .right-btn {
+    right: -40px;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .goods-view {
+    overflow: hidden;
+    width: 1240px;
+    height: 340px;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .goods-list {
+    display: flex;
+    gap: 4px;
+    transition: transform 0.3s;
+    height: 100%;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .item {
+    flex-shrink: 0;
+    width: 307px;
+    height: 340px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.CountTime .w .CountTime-bottom .goods-box .item img {
+    width: 75%;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .item .name {
+    font: 22px;
+    color: #333;
+    font-weight: normal;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .item .price .now-price {
+    font-size: 25px;
+    color: red;
+    margin-right: 10px;
+}
+
+.CountTime .w .CountTime-bottom .goods-box .item .price .old-price {
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* hotGoods部分 */
+.hotGoods {
+    height: 650px;
+    background-color: #f7f7f7;
+}
+
+.hotGoods .w {
+    height: 650px;
+}
+
+.hotGoods .w .hotGoods-title {
+    padding: 50px 0 30px 0;
+    text-align: center;
+}
+
+.hotGoods .w .hotGoods-list {
+    display: flex;
+    gap: 5px;
+    height: 500px;
+}
+
+.hotGoods .w .hotGoods-list .hotGoods-item {
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.hotGoods .w .hotGoods-list .hotGoods-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hotGoods .w .hotGoods-list .hotGoods-item img {
+    width: 100%;
+    height: 80%;
+}
+
+.hotGoods .w .hotGoods-list .hotGoods-item .goods-info {
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+}
+
+.hotGoods .w .hotGoods-list .hotGoods-item .goods-info .name {
+    font-size: 20px;
+    color: #333;
+}
+
+.hotGoods .w .hotGoods-list .hotGoods-item .goods-feature {
+    font: 8px;
+    color: #333;
+    padding-top: 10px;
+}
+
+.hotGoods .w .hotGoods-list .hotGoods-item .now-price {
+    font-size: 25px;
+    color: red;
+    margin-top: 20px;
+}
+
+/* 精品手机部分 */
+.phone {
+    height: 850px;
+    background-color: #f7f7f7;
+}
+
+.phone .w {
+    height: 850px;
+}
+
+.phone .w h3 {
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.phone .w .phone-list {
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.phone .w .phone-list .phone-item {
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.phone .w .phone-list .phone-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.phone .w .phone-list .phone-item img {
+    height: 70%;
+    width: 100%;
+}
+
+.phone .w .phone-list .big-item {
+    grid-column: span 2;
+}
+
+.phone .w .phone-list .big-item img {
+    height: 100%;
+}
+
+.phone .w .phone-list .phone-item h4 {
+    font: 22px;
+    color: #333;
+}
+
+.phone .w .phone-list .phone-item p {
+    font: 8px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.phone .w .phone-list .phone-item .phone-price {
+    font-size: 20px;
+    color: red;
+    margin-top: 30px;
+}
+
+/* 精品配件部分 */
+.accessory {
+    height: 950px;
+    padding-top: 50px;
+    background-color: #f7f7f7;
+}
+
+.accessory .w {
+    height: 850px;
+}
+
+.accessory .w .accessory-top {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    height: 50px;
+}
+
+.accessory .w .accessory-top h3 {
+    width: 55%;
+    height: 50px;
+    text-align: right;
+    line-height: 50px;
+    font-size: 30px;
+}
+
+.accessory .w .accessory-top .more {
+    display: flex;
+    gap: 10px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.accessory .w .accessory-top .more a:hover {
+    color: red;
+}
+
+.accessory .w .accessory-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.accessory .w .accessory-bottom .accessory-item {
+    height: 390px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.accessory .w .accessory-bottom .accessory-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accessory .w .accessory-bottom .accessory-item img {
+    height: 60%;
+    width: 100%;
+
+}
+
+.accessory .w .accessory-bottom .accessory-item h4 {
+    font: 22px;
+    color: #333;
+}
+
+.accessory .w .accessory-bottom .accessory-item p {
+    font: 8px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.accessory .w .accessory-bottom .accessory-item .accessory-price {
+    font-size: 20px;
+    color: red;
+    margin-top: 30px;
+}
+
+/* 电梯导航部分 */
+.vivo-elevator {
+    position: fixed;
+    left: 50%;
+    top: 280px;
+    z-index: 999999;
+    margin-left: 640px;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.vivo-elevator .vivo-elevator-list {
+    width: 70px;
+    height: 300px;
+    background: #fff;
+    float: right;
+    border: 1px solid #f7f7f7;
+    position: relative;
+}
+
+.vivo-elevator .vivo-elevator-list li{
+  height: 60px;
+  padding: 15px;   
+}
+
+.vivo-elevator .vivo-elevator-list li a{
+  width: 40px;
+  height: 40px;
+  display: block; 
+}
+
+.vivo-elevator .vivo-elevator-list li a:hover,
+.vivo-elevator .vivo-elevator-list li a.active {
+  color: #5467f5;
+}
+
+/* .elevator{
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    height: 50px;
+    width: 1240px;
+    z-index: 99999;
+    background-color: pink;
+} */
+
