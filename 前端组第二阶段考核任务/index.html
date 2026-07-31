@@ -7,8 +7,8 @@
     <title>VIVO商城网页复刻</title>
     <!-- 外联引入 先引入初始化css 之后是 公共样式 最后是index页面样式 -->
     <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/pages/home.css">
     <link rel="stylesheet" href="./css/all.min.css">
 </head>
 
@@ -35,7 +35,7 @@
     </div>
 
     <!-- header部分 -->
-    <header class="header">
+    <header class="header" id="headerWrap">
         <div class="w">
             <div class="logo">
                 <h1>
@@ -43,453 +43,20 @@
                 </h1>
             </div>
             <ul class="nav">
-                <li>
+                <li data-menu="x">
                     <a href="#" class="navItem">X系列</a>
-                    <div class="navDropdown">
-                        <div class="scrollViewport">
-                            <ul class="navDropdown-list">
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <ul class="navDropDown-bottom">
-                            <li>
-                                <a href="#">全部X机型</a>
-                            </li>
-                            <li class="line"></li>
-                            <li>
-                                <a href="#">对比机型</a>
-                            </li>
-                        </ul>
-                        <div class="navDropdown-button">
-                            <button class="navLeftBtn">&lt;</button>
-                            <button class="navRightBtn">&gt;</button>
-                        </div>
-                    </div>
                 </li>
-                <li>
+                <li data-menu="s">
                     <a href="#" class="navItem">S系列</a>
-                    <div class="navDropdown">
-                        <div class="scrollViewport">
-                            <ul class="navDropdown-list">
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                        <ul class="navDropDown-bottom">
-                            <li>
-                                <a href="#">全部X机型</a>
-                            </li>
-                            <li class="line"></li>
-                            <li>
-                                <a href="#">对比机型</a>
-                            </li>
-                        </ul>
-                        <div class="navDropdown-button">
-                            <button class="navLeftBtn">&lt;</button>
-                            <button class="navRightBtn">&gt;</button>
-                        </div>
-                    </div>
                 </li>
-                <li>
+                <li data-menu="y">
                     <a href="#" class="navItem">Y系列</a>
-                    <div class="navDropdown">
-                        <div class="scrollViewport">
-                            <ul class="navDropdown-list">
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                        <ul class="navDropDown-bottom">
-                            <li>
-                                <a href="#">全部X机型</a>
-                            </li>
-                            <li class="line"></li>
-                            <li>
-                                <a href="#">对比机型</a>
-                            </li>
-                        </ul>
-                        <div class="navDropdown-button">
-                            <button class="navLeftBtn">&lt;</button>
-                            <button class="navRightBtn">&gt;</button>
-                        </div>
-                    </div>
                 </li>
-                <li>
+                <li data-menu="iqoo">
                     <a href="#" class="navItem">iQOO手机</a>
-                    <div class="navDropdown">
-                        <div class="scrollViewport">
-                            <ul class="navDropdown-list">
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                        <ul class="navDropDown-bottom">
-                            <li>
-                                <a href="#">全部X机型</a>
-                            </li>
-                            <li class="line"></li>
-                            <li>
-                                <a href="#">对比机型</a>
-                            </li>
-                        </ul>
-                        <div class="navDropdown-button">
-                            <button class="navLeftBtn">&lt;</button>
-                            <button class="navRightBtn">&gt;</button>
-                        </div>
-                    </div>
                 </li>
-                <li>
+                <li data-menu="hardware">
                     <a href="#" class="navItem">智能硬件</a>
-                    <div class="navDropdown">
-                        <div class="scrollViewport">
-                            <ul class="navDropdown-list">
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="navDropdownItem">
-                                    <a href="#">
-                                        <div class="imgBox">
-                                            <img src="./update/dropdown_2.png" alt="">
-                                        </div>
-                                        <div class="imgInfor">
-                                            <p>X300s</p>
-                                            <img src="./update/new.png" alt="">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                        <ul class="navDropDown-bottom">
-                            <li>
-                                <a href="#">全部X机型</a>
-                            </li>
-                            <li class="line"></li>
-                            <li>
-                                <a href="#">对比机型</a>
-                            </li>
-                        </ul>
-                        <div class="navDropdown-button">
-                            <button class="navLeftBtn">&lt;</button>
-                            <button class="navRightBtn">&gt;</button>
-                        </div>
-                    </div>
                 </li>
                 <li><a href="#" class="navItem">商城</a></li>
                 <li><a href="#" class="navItem">服务</a></li>
@@ -497,7 +64,324 @@
             <div class="search">
                 <i class="fas fa-search"></i>
             </div>
-            <!-- 搜索弹框 -->
+
+            <!-- 唯一共用下拉外层 -->
+            <div class="navDropdown">
+                <!-- X系列面板 -->
+                <div class="navDropdown-panel" data-panel="x">
+                    <div class="scrollViewport">
+                        <ul class="navDropdown-list">
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>X300s</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>X300s</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>X300s</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="navDropDown-bottom">
+                        <li><a href="#">全部X机型</a></li>
+                        <li class="line"></li>
+                        <li><a href="#">对比机型</a></li>
+                    </ul>
+                    <div class="navDropdown-button">
+                        <button class="navLeftBtn">&lt;</button>
+                        <button class="navRightBtn">&gt;</button>
+                    </div>
+                </div>
+
+                <!-- S系列面板 -->
+                <div class="navDropdown-panel" data-panel="s">
+                    <div class="scrollViewport">
+                        <ul class="navDropdown-list">
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>S60</p>
+                                        <img src="./assets/update/new.png" alt="">
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="navDropDown-bottom">
+                        <li><a href="#">全部S机型</a></li>
+                        <li class="line"></li>
+                        <li><a href="#">对比机型</a></li>
+                    </ul>
+                    <div class="navDropdown-button">
+                        <button class="navLeftBtn">&lt;</button>
+                        <button class="navRightBtn">&gt;</button>
+                    </div>
+                </div>
+
+                <!-- Y系列面板 -->
+                <div class="navDropdown-panel" data-panel="y">
+                    <div class="scrollViewport">
+                        <ul class="navDropdown-list">
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>Y200</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="navDropDown-bottom">
+                        <li><a href="#">全部Y机型</a></li>
+                        <li class="line"></li>
+                        <li><a href="#">对比机型</a></li>
+                    </ul>
+                    <div class="navDropdown-button">
+                        <button class="navLeftBtn">&lt;</button>
+                        <button class="navRightBtn">&gt;</button>
+                    </div>
+                </div>
+
+                <!-- iQOO面板 -->
+                <div class="navDropdown-panel" data-panel="iqoo">
+                    <div class="scrollViewport">
+                        <ul class="navDropdown-list">
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>iQOO15</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="navDropDown-bottom">
+                        <li><a href="#">全部iQOO机型</a></li>
+                        <li class="line"></li>
+                        <li><a href="#">对比机型</a></li>
+                    </ul>
+                    <div class="navDropdown-button">
+                        <button class="navLeftBtn">&lt;</button>
+                        <button class="navRightBtn">&gt;</button>
+                    </div>
+                </div>
+
+                <!-- 智能硬件面板 -->
+                <div class="navDropdown-panel" data-panel="hardware">
+                    <div class="scrollViewport">
+                        <ul class="navDropdown-list">
+                            <li class="navDropdownItem">
+                                <a href="#">
+                                    <div class="imgBox">
+                                        <img src="./assets/update/dropdown_2.png" alt="">
+                                    </div>
+                                    <div class="imgInfor">
+                                        <p>vivo平板</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="navDropDown-bottom">
+                        <li><a href="#">全部智能硬件</a></li>
+                        <li class="line"></li>
+                        <li><a href="#">选购配件</a></li>
+                    </ul>
+                    <div class="navDropdown-button">
+                        <button class="navLeftBtn">&lt;</button>
+                        <button class="navRightBtn">&gt;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 搜索弹窗 -->
             <div class="alert-search" style="display:none;">
                 <div class="input-box">
                     <span class="search"><i class="fas fa-search"></i></span>
@@ -542,114 +426,114 @@
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO Neo</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO 旗舰</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                             </ul>
                             <ul class="dropdown-bottom">
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_2.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_2.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                             </ul>
@@ -667,114 +551,114 @@
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO Neo</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO 旗舰</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                             </ul>
                             <ul class="dropdown-bottom">
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_2.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_2.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                             </ul>
@@ -792,114 +676,114 @@
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO Neo</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO 旗舰</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                             </ul>
                             <ul class="dropdown-bottom">
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_2.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_2.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                             </ul>
@@ -917,114 +801,114 @@
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO Neo</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO 旗舰</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                             </ul>
                             <ul class="dropdown-bottom">
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_2.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_2.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                             </ul>
@@ -1042,114 +926,114 @@
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO Neo</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO 旗舰</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                             </ul>
                             <ul class="dropdown-bottom">
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_2.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_2.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                             </ul>
@@ -1167,114 +1051,114 @@
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO Neo</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO 旗舰</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                             </ul>
                             <ul class="dropdown-bottom">
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_2.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_2.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                             </ul>
@@ -1292,114 +1176,114 @@
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO Neo</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO 旗舰</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                             </ul>
                             <ul class="dropdown-bottom">
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_2.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_2.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                             </ul>
@@ -1417,114 +1301,114 @@
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO Neo</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>IQOO 旗舰</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <p>vivo S</p>
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                     </a>
                                 </li>
                             </ul>
                             <ul class="dropdown-bottom">
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_2.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_2.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="./update/dropdown_1.png" alt="">
+                                        <img src="./assets/update/dropdown_1.png" alt="">
                                         <p>【预约】 IQOO Z1 1i</p>
-                                        <span><img src="./update/dropdown-bottom_1.png" alt=""></span>
+                                        <span><img src="./assets/update/dropdown-bottom_1.png" alt=""></span>
                                     </a>
                                 </li>
                             </ul>
@@ -1533,13 +1417,18 @@
                 </ul>
             </div>
             <div class="banner">
-                <ul class="line">
-                    <li class="active"></li>
+                <!-- 动态容器，后期用js渲染图片 -->
+                <!-- 动态图片容器 -->
+                <div class="banner-slides"></div>
+                <!-- 指示器容器 -->
+                <ul class="banner-line"></ul>
+                <!-- <ul class="line">
+                    
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>
@@ -1547,9 +1436,9 @@
     <div class="floor-list">
         <div class="w">
             <ul>
-                <li><a href="#"><img src="./update/floor-list-1.png" alt=""></a></li>
-                <li><a href="#"><img src="./update/floor-list-2.png" alt=""></a></li>
-                <li><a href="#"><img src="./update/floor-list-3.png" alt=""></a></li>
+                <li><a href="#"><img src="./assets/update/floor-list-1.png" alt=""></a></li>
+                <li><a href="#"><img src="./assets/update/floor-list-2.png" alt=""></a></li>
+                <li><a href="#"><img src="./assets/update/floor-list-3.png" alt=""></a></li>
             </ul>
         </div>
     </div>
@@ -1559,7 +1448,7 @@
         <div class="w">
             <div class="CountTime-top">
                 <div class="CountTime-top-left">
-                    <img src="./image/CountTime-logo.png" alt="">
+                    <img src="./assets/images/CountTime-logo.png" alt="">
                     <div class="Count">
                         <p>距离结束</p>
                         <span id="hour">00</span>
@@ -1586,7 +1475,7 @@
                         <div class="goods-list">
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1598,7 +1487,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1610,7 +1499,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1622,7 +1511,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1634,7 +1523,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1646,7 +1535,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1658,7 +1547,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1670,7 +1559,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1682,7 +1571,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1694,7 +1583,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1706,7 +1595,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1718,7 +1607,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1730,7 +1619,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1742,7 +1631,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1754,7 +1643,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1766,7 +1655,7 @@
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <img src="./update/image.png" alt="">
+                                    <img src="./assets/update/image.png" alt="">
                                     <div class="goods-info">
                                         <p class="name">商品名称</p>
                                         <p class="price">
@@ -1791,7 +1680,7 @@
             <div class="hotGoods-list">
                 <div class="hotGoods-item">
                     <a href="#">
-                        <img src="./update/image_1.png" alt="">
+                        <img src="./assets/update/image_1.png" alt="">
                         <div class="goods-info">
                             <p class="name">vivo Y600 Turbo</p>
                             <span class="goods-feature">骁龙7s流畅芯</span>
@@ -1801,7 +1690,7 @@
                 </div>
                 <div class="hotGoods-item">
                     <a href="#">
-                        <img src="./update/image_1.png" alt="">
+                        <img src="./assets/update/image_1.png" alt="">
                         <div class="goods-info">
                             <p class="name">vivo Y600 Turbo</p>
                             <span class="goods-feature">骁龙7s流畅芯</span>
@@ -1811,7 +1700,7 @@
                 </div>
                 <div class="hotGoods-item">
                     <a href="#">
-                        <img src="./update/image_1.png" alt="">
+                        <img src="./assets/update/image_1.png" alt="">
                         <div class="goods-info">
                             <p class="name">vivo Y600 Turbo</p>
                             <span class="goods-feature">骁龙7s流畅芯</span>
@@ -1829,40 +1718,40 @@
             <h3>精品手机</h3>
             <ul class="phone-list">
                 <li class="phone-item big-item">
-                    <img src="./update/phone_1.png" alt="">
+                    <img src="./assets/update/phone_1.png" alt="">
                 </li>
                 <li class="phone-item">
-                    <img src="./update/phone_2.png" alt="">
+                    <img src="./assets/update/phone_2.png" alt="">
                     <h4>vivo s50</h4>
                     <p>长焦神器</p>
                     <p class="phone-price">￥3399.00</p>
                 </li>
                 <li class="phone-item">
-                    <img src="./update/phone_2.png" alt="">
+                    <img src="./assets/update/phone_2.png" alt="">
                     <h4>vivo s50</h4>
                     <p>长焦神器</p>
                     <p class="phone-price">￥3399.00</p>
                 </li>
                 <li class="phone-item">
-                    <img src="./update/phone_2.png" alt="">
+                    <img src="./assets/update/phone_2.png" alt="">
                     <h4>vivo s50</h4>
                     <p>长焦神器</p>
                     <p class="phone-price">￥3399.00</p>
                 </li>
                 <li class="phone-item">
-                    <img src="./update/phone_2.png" alt="">
+                    <img src="./assets/update/phone_2.png" alt="">
                     <h4>vivo s50</h4>
                     <p>长焦神器</p>
                     <p class="phone-price">￥3399.00</p>
                 </li>
                 <li class="phone-item">
-                    <img src="./update/phone_2.png" alt="">
+                    <img src="./assets/update/phone_2.png" alt="">
                     <h4>vivo s50</h4>
                     <p>长焦神器</p>
                     <p class="phone-price">￥3399.00</p>
                 </li>
                 <li class="phone-item">
-                    <img src="./update/phone_2.png" alt="">
+                    <img src="./assets/update/phone_2.png" alt="">
                     <h4>vivo s50</h4>
                     <p>长焦神器</p>
                     <p class="phone-price">￥3399.00</p>
@@ -1885,49 +1774,49 @@
             </div>
             <ul class="accessory-bottom">
                 <li class="accessory-item">
-                    <img src="./update/accessory.png" alt="">
+                    <img src="./assets/update/accessory.png" alt="">
                     <h4>vivo TWS Air3</h4>
                     <p>45h超长续航</p>
                     <p class="accessory-price">￥99.00</p>
                 </li>
                 <li class="accessory-item">
-                    <img src="./update/accessory.png" alt="">
+                    <img src="./assets/update/accessory.png" alt="">
                     <h4>vivo TWS Air3</h4>
                     <p>45h超长续航</p>
                     <p class="accessory-price">￥99.00</p>
                 </li>
                 <li class="accessory-item">
-                    <img src="./update/accessory.png" alt="">
+                    <img src="./assets/update/accessory.png" alt="">
                     <h4>vivo TWS Air3</h4>
                     <p>45h超长续航</p>
                     <p class="accessory-price">￥99.00</p>
                 </li>
                 <li class="accessory-item">
-                    <img src="./update/accessory.png" alt="">
+                    <img src="./assets/update/accessory.png" alt="">
                     <h4>vivo TWS Air3</h4>
                     <p>45h超长续航</p>
                     <p class="accessory-price">￥99.00</p>
                 </li>
                 <li class="accessory-item">
-                    <img src="./update/accessory.png" alt="">
+                    <img src="./assets/update/accessory.png" alt="">
                     <h4>vivo TWS Air3</h4>
                     <p>45h超长续航</p>
                     <p class="accessory-price">￥99.00</p>
                 </li>
                 <li class="accessory-item">
-                    <img src="./update/accessory.png" alt="">
+                    <img src="./assets/update/accessory.png" alt="">
                     <h4>vivo TWS Air3</h4>
                     <p>45h超长续航</p>
                     <p class="accessory-price">￥99.00</p>
                 </li>
                 <li class="accessory-item">
-                    <img src="./update/accessory.png" alt="">
+                    <img src="./assets/update/accessory.png" alt="">
                     <h4>vivo TWS Air3</h4>
                     <p>45h超长续航</p>
                     <p class="accessory-price">￥99.00</p>
                 </li>
                 <li class="accessory-item">
-                    <img src="./update/accessory.png" alt="">
+                    <img src="./assets/update/accessory.png" alt="">
                     <h4>vivo TWS Air3</h4>
                     <p>45h超长续航</p>
                     <p class="accessory-price">￥99.00</p>
@@ -2083,7 +1972,14 @@
 
     <!-- 2.网页的底部 -->
 
-    <script src="./js.js"></script>
+    <script src="./js/modules/navDropdown.js"></script>
+    <script src="./js/modules/searchModal.js"></script>
+    <script src="./js/modules/categoryHover.js"></script>
+    <script src="./js/modules/entryCarousel.js"></script>
+    <script src="./js/modules/countdown.js"></script>
+    <script src="./js/modules/goodsCarousel.js"></script>
+    <script src="./js/modules/elevator.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

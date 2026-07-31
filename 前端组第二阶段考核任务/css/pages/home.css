@@ -1,9 +1,9 @@
 .entry {
     height: 500px;
     /* background-color: pink; */
-    background: url(../update/banner_4.jpg);
-    background-size: cover;
-    background-position: -490px;
+    background: url(assets/update/banner_4.jpg);
+    background-size: cover; 
+    background-position: -490px; 
     background-repeat: no-repeat;
 }
 
@@ -41,13 +41,25 @@
     width: 750px;
     background-color: #f7f7f7;
     opacity: 0;
-    visibility: hidden;
+    /* visibility: hidden; */
+    /* 核心思路：用天然动画控制切换效果 */
+    /* 1. 用 transform 代替 visibility，触发 GPU 加速 */
+    /* 2. 用 pointer-events 代替 visibility，彻底移除交互 */
+    /* 3. 两个属性同步过渡，丝滑且无跳变 */
+    transform: translateX(-10px);
+    pointer-events: none;
+     /* 隐藏时不可点击，防止穿透误触 */
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    /* 4. 告诉浏览器这个元素会变化，提前创建合成层 */
+    will-change: transform, opacity;
+    /*不可滥用，只对确实需要频繁动画的元素添加*/
     z-index: 999;
 }
 
 .category ul li .dropdown.show{
+    transform: translateX(0);
     opacity: 1;
-    visibility: visible;
+    pointer-events: auto;/* 展开时恢复交互 */
 }
 
 .category ul li .dropdown .dropdown-title{
@@ -169,31 +181,73 @@
     position: relative;
 }
 
-.entry .w .banner .line{
-    position: absolute;
-    display: flex;
-    bottom: 10px;
-    right: 500px;
+.entry .w .banner-slides{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.entry .w .banner .line li{
+.entry .w .banner-slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.entry .w .banner-slide.active{
+    opacity: 1;
+}
+
+.entry .w .banner .banner-line{
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.entry .w .banner .banner-line li{
     background-color: rgba(255, 255, 255, 0.5);
     height: 3px;
     width: 45px;
     margin: 0 4px;
+    /* overflow: hidden; */
+    z-index: 99999999;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
 }
 
-.entry .w .banner .line li:hover{
-    box-shadow: 0 -3px 0 0 rgba(255, 255, 255, 0.5);
-}
-
-.entry .w .banner .line .active{
+.entry .w .banner .banner-line li::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 6px;
+    width: 0%;/*初始宽度为0 */
     background-color: #fff;
-    box-shadow: 0 -3px 0 0 #fff;
+    transition: none;/*  默认状态强制无过渡，确保重置时瞬间归零 */
 }
 
-.entry .w .banner .line .active:hover{
-    box-shadow: 0 -3px 0 0 #fff;
+.entry .w .banner .banner-line li.active::after{
+    width: 100%;
+    transition:width 4s linear;
+}
+
+/* !!!!!Hover 状态：仅非激活项生效 */
+.entry .w .banner .banner-line li:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 -2px 0 0 rgba(255, 255, 255, 0.5); 
+}
+
+.entry .w .banner .banner-line .active{
+    box-shadow: 0 -3px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 /* floor-list部分 */
@@ -307,7 +361,7 @@
     position: absolute;
     height: 35px;
     width: 35px;
-    border: 1px solid gray;
+    border: 1px solid #999999;
     border-radius: 50%;
     z-index: 99999;
 }
