@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机点名</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+
+            width: 450px;
+            height: 40px;
+            color: red;
+
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>名字是：</span>
+        <div class="qs">这里显示姓名</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+
+   
+
+    <script>
+        // 数据数组
+        const arr = ['冯礼盈', '黄语馨', '任妍萱', '唐晶晶', '刘嘉义','吴若汐']
+        const qs = document.querySelector('.qs')
+
+        let timeId = 0
+        let random = 0
+        //1.开始按钮模块
+        const start = document.querySelector('.start')
+        // 1.2添加点击事件
+
+        start.addEventListener('click',function(){
+            timeId = setInterval(function(){
+                random = parseInt(Math.random() * arr.length)
+                qs.innerHTML = arr[random]
+            },35)
+        })
+
+        const end = document.querySelector('.end')
+        end.addEventListener('click',function(){
+            clearInterval(timeId)
+            arr.splice(random,1)
+            console.log(arr);
+        })
+
+        if(arr.length === 1){
+            start.disabled = true
+            end.disabled = true
+        }
+    </script>
+</body>
+
+</html>

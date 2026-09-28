@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.随机生成一个数字1~10
+        function getRandom(N, M) {
+            return Math.floor(Math.random()*(M - N + 1)) + N
+        }
+
+        let random = getRandom(1, 10)
+
+        console.log(random)
+        // 2.用户输入一个数字
+        while (true) {
+            let num = +prompt('请输入一个数字:')
+            // 3.判断输出
+            if (num > random) {
+                alert('你猜大了')
+            } else if (num < random) {
+                alert('你猜小了')
+            } else {
+                alert('congradulation!')
+                break
+            }
+        }
+    </script>
+</body>
+
+</html>

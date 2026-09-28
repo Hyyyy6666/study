@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10">
+        用户注册协议
+        欢迎注册成为京东用户！在您注册的过程中，您需要完成我们的注册流程
+        【请您注意】如果您不同意以下协议全部或任何条款约定，请您停止注册
+    </textarea>
+    <br>
+    <button class="btn" disabled>我已同意用户协议(60s)</button>
+    <script>
+        /* setInterval(function(){
+            console.log('一秒执行一次');
+        },1000) */
+        // clearInterval(变量名)
+
+        /* function fn(){
+            console.log('一秒执行一次');
+        }
+
+        setInterval(fn,1000)//只写函数名，不加小括号 */
+
+
+        /* 用户协议倒计时 */
+        const btn = document.querySelector('.btn')
+
+        let i = 60 
+
+        let n = setInterval(function(){
+            i--
+            btn.innerHTML = `我已阅读用户协议(${i})`
+            if(i === 0){
+                clearInterval(n)//关闭定时器
+                btn.disabled = false
+                btn.innerHTML = '同意'
+            }
+        },1000)
+        //button按钮特殊，获取button内的文字必须用innerHTML
+    </script>
+</body>
+</html>

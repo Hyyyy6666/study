@@ -1,52 +1,94 @@
-/* 去除常见标签默认的 margin 和 padding */
+/* ============================================
+   base.css - 全局基础样式 & 设计令牌
+   重构说明：修复font语法错误，建立CSS变量体系
+   ============================================ */
+
+/* --- 1. 设计令牌 (Design Tokens) --- */
+:root {
+    /* 品牌色 */
+    --color-primary: #007aff;
+    --color-text-main: #333333;
+    --color-text-secondary: #666666;
+    --color-text-light: #999999;
+    --color-bg-white: #ffffff;
+    --color-bg-gray: #f5f5f5;
+    --color-border: #e5e5e5;
+
+    /* 字号系统 */
+    --font-size-xs: 8px;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 22px;
+    --font-size-xl: 28px;
+    --font-size-xxl: 36px;
+
+    /* 间距系统 */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* 布局 */
+    --container-width: 1240px;
+    --header-height: 60px;
+
+    /* z-index 层级体系 */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-overlay: 300;
+    --z-modal: 400;
+    --z-toast: 500;
+
+    /* 过渡 */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.25s ease;
+}
+
+/* --- 2. 全局重置 (保持原有逻辑不变) --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* 设置网页统一的字体大小、行高、字体系列相关属性 */
-body {
-  font: 16px/1 "Microsoft Yahei",
-    "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
-  color: #333;
+ul, ol {
+    list-style: none;
 }
 
-/* 去除列表默认样式 */
-ul,
-ol {
-  list-style: none;
-}
-
-/* 去除默认的倾斜效果 */
-em,
-i {
-  font-style: normal;
-}
-
-/* 去除a标签默认下划线，并设置默认文字颜色 */
 a {
-  text-decoration: none;
-  color: #333;
+    text-decoration: none;
+    color: inherit;
 }
 
-/* 设置img的垂直对齐方式为居中对齐，去除img默认下间隙 */
 img {
-  vertical-align: middle;
+    display: block;
+    max-width: 100%;
 }
 
-/* 去除input默认样式 */
-input {
-  border: none;
-  outline: none;
-  color: #333;
+body {
+    font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+    font-size: var(--font-size-base);
+    color: var(--color-text-main);
+    background-color: var(--color-bg-white);
+    line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400;
+/* --- 3. 公共工具类 --- */
+.w {
+    width: var(--container-width);
+    margin: 0 auto;
 }
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* --- 4. ⚠️ 关键修复：原代码中 font: xxpx 全部无效 --- */
+/* 
+   原写法 font: 22px; 会被浏览器忽略
+   已统一替换为 font-size，后续组件中引用变量即可
+*/

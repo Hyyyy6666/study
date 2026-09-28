@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传</title>
+</head>
+<body>
+    <!--文件选择元素-->
+    <input type="file" class="upload">
+    <img src="" alt="" class="my-img">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        document.querySelector('.upload').addEventListener('change', e => {
+            //1.获取图片文件
+            console.log(e.target.files[0])
+
+            //2.使用 FormData 携带图片文件
+            const fd = new FormData()
+            fd.append('img', e.target.files[0])
+
+            axios({
+                url: 'http://hmajax.itheima.net/api/uploadimg',
+                method: 'POST',
+                data: fd
+            }).then(result =>{
+                console.log(result)
+                //去除图片url网址
+                const imgUrl = result.data.data.url
+                document.body.style.backgroundImage = `url(${imgUrl})`
+
+                localStorage.setItem('bgImg',imgUrl)
+            })
+        })
+
+
+        const bgUrl = localStorage('bgImg')
+        console.log(bgUrl)
+
+        //用短路特性来防止报错
+        bgUrl && (document.body.style.backgroundImage = `url(${bgUrl})`)
+    </script>
+</body>
+</html>

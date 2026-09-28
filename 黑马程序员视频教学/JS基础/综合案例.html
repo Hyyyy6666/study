@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box w">
+        <div class="box-hd">
+            <h3>精品推荐</h3>
+            <a href="#">查看全部</a>
+        </div>
+        <div class="box-bd">
+            <ul class="clearfix">
+                <script>
+                    let data = [
+                        {
+                            src: '',
+                            title: 'Think PHP 5.0 博客系统',
+                            num: 1125
+                        },
+                        {
+                            src: '',
+                            title: 'Android 网络动态图片加载实战',
+                            num: 357
+                        },
+                        {
+                            src: '',
+                            title: 'Think PHP 5.0 博客系统',
+                            num: 1125
+                        },
+                        {
+                            src: '',
+                            title: 'Android 网络动态图片加载实战',
+                            num: 357
+                        },
+                        {
+                            src: '',
+                            title: 'Think PHP 5.0 博客系统',
+                            num: 1125
+                        },
+                        {
+                            src: '',
+                            title: 'Android 网络动态图片加载实战',
+                            num: 357
+                        }
+                    ]
+
+                    for (let i = 0; i < data.length; i++) {
+                        document.write(`
+                    <li>
+                        <a href="#">
+                            <img src=${data[i].src} title = ${data[i].title}>
+                            <h4>
+                                ${data[i].title}
+                            </h4>
+                            <div class="info">
+                                <span>高级</span><span>·</span><span> ${data[i].num}</span>
+                            </div>
+                        </a>
+                    </li>`)
+                    }
+                </script>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

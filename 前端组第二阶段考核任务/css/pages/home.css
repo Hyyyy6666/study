@@ -654,19 +654,10 @@
   height: 40px;
   display: block; 
 }
-
+    
 .vivo-elevator .vivo-elevator-list li a:hover,
 .vivo-elevator .vivo-elevator-list li a.active {
   color: #5467f5;
 }
 
-/* .elevator{
-    position: fixed;
-    left: 50%;
-    bottom: 20px;
-    height: 50px;
-    width: 1240px;
-    z-index: 99999;
-    background-color: pink;
-} */
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" value="电脑">
+    <script>
+        //1. 获取元素
+        const uname = document.querySelector('input')
+        //2. 获取值 获取表单里面的值，用的 表单.value
+        console.log(uname.value)//电脑
+        //console.log(uname.innerHTML)得不到表单内容
+
+        uname.value = '我要买电脑'
+        uname.type = 'password'
+    </script> -->
+
+    <input type="checkbox" name="" id="" checked>
+    <button disabled>点击</button><!-- 属性和值恰好相等可以省略 -->
+    <script>
+        const ipt = document.querySelector('input')
+        //console.log(ipt.checked);//false
+        ipt.checked = true
+        //ipt.checked = 'true'虽然会选中，有隐式转换，但不提倡
+
+        const button = document.querySelector('button')
+        console.log(button.disabled)//默认false 不禁用
+        button.disabled = true //禁用按钮
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .countdown {
+            width: 240px;
+            height: 305px;
+            text-align: center;
+            line-height: 1;
+            color: #fff;
+            background-color: brown;
+            /* background-size: 240px; */
+            /* float: left; */
+            overflow: hidden;
+        }
+
+        .countdown .next {
+            font-size: 16px;
+            margin: 25px 0 14px;
+        }
+
+        .countdown .title {
+            font-size: 33px;
+        }
+
+        .countdown .tips {
+            margin-top: 80px;
+            font-size: 23px;
+        }
+
+        .countdown small {
+            font-size: 17px;
+        }
+
+        .countdown .clock {
+            width: 142px;
+            margin: 18px auto 0;
+            overflow: hidden;
+        }
+
+        .countdown .clock span,
+        .countdown .clock i {
+            display: block;
+            text-align: center;
+            line-height: 34px;
+            font-size: 23px;
+            float: left;
+        }
+
+        .countdown .clock span {
+            width: 34px;
+            height: 34px;
+            border-radius: 2px;
+            background-color: #303430;
+        }
+
+        .countdown .clock i {
+            width: 20px;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown">
+        <p class="next">今天是2222年2月22日</p>
+        <p class="title">下班倒计时</p>
+        <p class="clock">
+            <span id="hour">00</span>
+            <i>:</i>
+            <span id="minutes">25</span>
+            <i>:</i>
+            <span id="scond">20</span>
+        </p>
+        <p class="tips">18:30:00下课</p>
+    </div>
+    <script>
+        const next = document.querySelector('.next')
+        function getMyDate() {
+            let date = new Date()
+
+            return `今天是${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`
+        }
+
+        next.innerHTML = getMyDate()
+        setInterval(function () {
+            next.innerHTML = getMyDate()
+        }, 1000)
+
+
+       //函数封装
+       function getCountTime(){
+         // 1.获得当前时间戳
+        const now = +new Date()
+        // 2.获得对应时间的时间戳
+        const next = +new Date('2026-6-30 24:00:00')
+
+        const count = (next - now) / 1000
+
+        //4.转换公式
+        // d = parseInt(总秒数 / 60 / 60 / 24)
+        // h = parseInt(总秒数 / 60 / 60 % 24)
+        // m = parseInt(总秒数 / 60 % 60)
+        // s = parseInt(总秒数 % 60)
+
+        let h = parseInt(count / 60 / 60 % 24)
+        h = h < 10 ? '0' + h : h
+        let m = parseInt(count / 60 % 60)
+        m = m < 10 ? '0' + m : m
+        let s = parseInt(count % 60)
+        s = s < 10 ? '0' + s : s
+
+        document.querySelector('#hour').innerHTML = h
+        document.querySelector('#minutes').innerHTML = m
+        document.querySelector('#scond').innerHTML = s
+       }
+
+       //先调用一次
+       getCountTime()
+
+       setInterval(getCountTime,1000)
+
+    </script>
+</body>
+
+</html>

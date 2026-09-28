@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+        //1.得到一个随机数函数，取值范围是0~6,作为数组的索引号
+        let random = Math.floor(Math.random() * arr.length)
+
+        document.write(arr[random])
+
+        //3.splice(起始位置（下表）,删除几个)
+        arr.splice(random,1)
+        console.log(arr);
+        
+    </script>>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>学生就业统计表</h1>
+    <form class="info" autocapitalize="off">
+        <input type="text" class="uname" name="uname" placeholder="姓名">
+        <input type="text" class="age" name="age" placeholder="年龄">
+        <input type="text" class="salary" name="salary" placeholder="薪资">
+        <select name="gender" class="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        <select name="city" class="city">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广东">广东</option>
+            <option value="湖北">湖北</option>
+        </select>
+        <button class="add">添加</button>
+    </form>
+
+    <div class="title">
+        共有数据<span>0</span>条
+    </div>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>年龄 </th>
+            <th>性别</th>
+            <th>薪资</th>
+            <th>就业城市</th>
+            <th>录入时间</th>
+            <th>操作</th>
+        </thead>
+
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>AAA建材市场老王</td>
+                <td>23</td>
+                <td>男</td>
+                <td>5000</td>
+                <td>北京</td>
+                <td>2006/10/11</td>
+                <td>
+                    <a href="javascript;">
+                        <i class="iconfont icon-shanchu"></i>
+                        删除
+                    </a>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+
+    <script>
+        // 参考数据
+
+        const initData = [
+            {
+                ID: 1,
+                uname: 'AAA建材市场老王',
+                age: 20,
+                gender: '男',
+                salary: 120000,
+                city: '北京',
+                time: '2099/9/9 08:08:08'
+            }
+        ]
+
+        // 1.渲染业务
+        //1.1.先读取本地储存的数据
+        //（1）本地储存有数据则记得转换为对象然后储存到变量里，便于后面的渲染页面
+        //（2）如果没有数据，则用空数组代替
+        // localStorage.setItem('data', JSON.stringify(initData))
+
+        const arr = JSON.parse(localStorage.getItem('data')) || []
+
+        const tbody = document.querySelector('tbody')
+        // 1.2用map和join方法渲染页面
+        function render() {
+            const trArr = arr.map(function (ele, index) {
+                return `
+                    <tr>
+                        <td>${ele.ID}</td>
+                        <td>${ele.uname}</td>
+                        <td>${ele.age}</td>
+                        <td>${ele.gender}</td>
+                        <td>${ele.salary}</td>
+                        <td>${ele.city}</td>
+                        <td>${ele.time}</td>
+                        <td>
+                            <a href="javascript:;" data-id="${index}">
+                                <i class="iconfont icon-shanchu"></i>
+                                删除
+                            </a>
+                        </td>
+                    </tr>
+                `
+            })
+
+            tbody.innerHTML = trArr.join("")
+
+            document.querySelector('.title span').innerHTML = trArr.length
+
+        }
+
+        render()
+
+        // 2.新增业务
+        const info = document.querySelector('.info')
+        const uname = document.querySelector('.uname')
+        const age = document.querySelector(".age")
+        const salary = document.querySelector('.salary')
+        const city = document.querySelector(".city")
+        const gender = document.querySelector('.gender')
+
+        info.addEventListener('submit', function (e) {
+            e.preventDefault()
+
+            if (!uname.value || !age.value || !salary.value) {
+                return alert('提交信息不能为空')
+            }
+
+            arr.push({
+                ID:arr.length ? arr[arr.length - 1].ID + 1 : 1,
+                uname: uname.value,
+                age: age.value,
+                gender: gender.value,
+                salary: salary.value,
+                city: city.value,
+                time: new Date().toLocaleString()
+            })
+
+            render()
+
+            this.reset()
+
+            localStorage.setItem('data', JSON.stringify(arr))
+
+        })
+
+
+        // 3.删除业务
+        tbody.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') {
+                if (confirm("你确定要删除这条数据吗？")) {
+                    arr.splice(Number(e.target.dataset.index), 1)
+                    render()
+                    localStorage.setItem('data', JSON.stringify(arr))
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

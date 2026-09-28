@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>没用了</li>
+    </ul>
+    <script>
+        // 克隆节点
+        const ul = document.querySelector('ul')
+         // 1 克隆节点 元素.cloneNode(true)
+         const li1 = ul.children[0].cloneNode(true)
+         ul.appendChild(ul.children[0].cloneNode(true))
+         //深克隆
+
+
+        //  删除节点
+        //删除节点 父元素.removeChild(子元素)
+        ul.removeChild(ul.children[3])
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 600px;
+            text-align: center;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            /*表格边框合并属性*/
+        }
+
+        caption {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        tr {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        table tr:not(:first-child):hover {
+            /*除了第一行都有hover*/
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>学生信息</h2>
+    <p>将数据渲染到页面中...</p>
+
+    <table>
+        <caption>学生列表</caption>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+            <td>家乡</td>
+        </tr>
+        <!-- <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>18</td>
+            <td>男</td>
+            <td>河北省</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>18</td>
+            <td>男</td>
+            <td>河北省</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>18</td>
+            <td>男</td>
+            <td>河北省</td>
+        </tr> -->
+        </table>
+    <Script>
+        //1.数据准备
+        let Students = [
+            { name: '小明', age: 18, gender: '男', hometown: '河北省' },
+            { name: '小红', age: 19, gender: '女', hometown: '河南省' },
+            { name: '小刚', age: 17, gender: '男', hometown: '山西省' },
+            { name: '小丽', age: 18, gender: '女', hometown: '山东省' }
+        ]
+
+        //2.渲染数据
+        for(let i = 0 ; i < Students.length ; i++){
+            document.write(`
+            <tr>
+            <td>${i + 1}</td>
+            <td>${Students[i].name}</td>
+            <td>${Students[i].age}</td>
+            <td>${Students[i].gender}</td>
+            <td>${Students[i].hometown}</td>
+            </tr>
+            `)
+        }
+
+    </Script>
+</body>
+
+</html>
