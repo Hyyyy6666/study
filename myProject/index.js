@@ -16,7 +16,7 @@ function render(){
                 <td>${element.serial}</td>
                 <td>${element.content}</td>
                 <td>
-                    <a href="javascript;" data-id="${index}">
+                    <a href="javascript:;" data-id="${index}">
                         删除
                     </a>
                 </td> 
@@ -30,3 +30,29 @@ function render(){
 }
 
 render()
+
+
+//创建数据业务
+// 1.获取元素
+const info = document.querySelector('.info')
+const content = document.querySelector('.text')
+
+info.addEventListener('submit',function(e){
+    e.preventDefault()
+
+    if(!content.value){
+        alert("提交信息不能为空")
+        return
+    }
+
+    arr.push({
+        serial:arr.length?arr[arr.length -1].serial + 1 : 1 ,
+        content:content.value
+    })
+
+    render()
+
+    this.reset()
+
+    localStorage.setItem('data',JSON.stringify(arr))
+})
