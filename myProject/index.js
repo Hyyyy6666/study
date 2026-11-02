@@ -56,3 +56,16 @@ info.addEventListener('submit',function(e){
 
     localStorage.setItem('data',JSON.stringify(arr))
 })
+
+//删除业务
+tbody.addEventListener('click',function(e){
+    if(e.target.tagName === 'A')
+    {
+        if(confirm("你确定删除这条数据吗"))
+        {
+            arr.splice(Number(e.target.dataset.index),1)
+            render()
+            localStorage.setItem('data',JSON.stringify(arr))
+        }
+    }
+})
